@@ -86,6 +86,7 @@ void UFacadeDificultadJuego::SetValoresEnemigos(int DificultadNivel, FValoresNav
 
 void UFacadeDificultadJuego::SetValoresNivel(int dificultadNivel, const FValoresNaveEnemiga& ValoresNaveEnemiga)
 {
+
     switch (dificultadNivel)
     {
     case 1:
@@ -93,18 +94,6 @@ void UFacadeDificultadJuego::SetValoresNivel(int dificultadNivel, const FValores
         NumeroFilas = 5;
         USistemaPuntuacionComponente::MultiplicadorPuntaje = 1.0f;
         break;
-    UInstanciaJuegoNivel* InstanciaJuegoNivel = Cast<UInstanciaJuegoNivel>(GetWorld()->GetGameInstance());
-    if (InstanciaJuegoNivel)
-    {
-        CrearNivel(InstanciaJuegoNivel->NumeroNivel); 
-
-        GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Dificultad Jueasdfasfdasfgo"));
-    }
-  
-    
-}
-void UFacadeDificultadJuego::CrearNivel(int NumeroDelNivel)
-{
     case 2:
         NumeroNaves = 10;
         NumeroFilas = 5;
@@ -121,6 +110,19 @@ void UFacadeDificultadJuego::CrearNivel(int NumeroDelNivel)
         USistemaPuntuacionComponente::MultiplicadorPuntaje = 0.5f;
         break;
     }
+
+    UInstanciaJuegoNivel* InstanciaJuegoNivel = Cast<UInstanciaJuegoNivel>(GetWorld()->GetGameInstance());
+    if (InstanciaJuegoNivel)
+    {
+        CrearNivel(InstanciaJuegoNivel->NumeroNivel);
+
+        GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Dificultad Jueasdfasfdasfgo"));
+    }
+
+    
+}
+void UFacadeDificultadJuego::CrearNivel(int NumeroDelNivel)
+{
     FVector NNSpawnLocation(0.0f, 0.0f, 250.0f);
     ANaveNodrizaNiv1* BuilderNaveNodriza;
     ANaveNodrizaDirector* DirectorNaveNodriza;

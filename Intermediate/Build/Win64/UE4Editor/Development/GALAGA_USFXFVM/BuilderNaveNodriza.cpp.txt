@@ -1,0 +1,4 @@
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Development\GALAGA_USFXFVM\Definitions.GALAGA_USFXFVM.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\BuilderNaveNodriza.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\ConfiguracionNaveNodriza.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\BuilderNaveNodriza.generated.h

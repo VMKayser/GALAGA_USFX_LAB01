@@ -1,0 +1,11 @@
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Development\GALAGA_USFXFVM\Definitions.GALAGA_USFXFVM.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM/NaveKamikaze.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\NaveEnemiga.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\MovimientoNavesEnemigas.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\MovimientoNavesEnemigas.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\SistemaPuntuacionComponente.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\SistemaPuntuacionComponente.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveEnemiga.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveKamikaze.generated.h

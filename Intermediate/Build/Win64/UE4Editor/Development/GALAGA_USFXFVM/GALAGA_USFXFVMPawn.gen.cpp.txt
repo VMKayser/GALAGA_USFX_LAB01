@@ -1,0 +1,11 @@
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Development\GALAGA_USFXFVM\Definitions.GALAGA_USFXFVM.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM/GALAGA_USFXFVMPawn.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\GALAGA_USFXFVMPawn.generated.h

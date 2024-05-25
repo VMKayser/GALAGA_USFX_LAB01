@@ -1,0 +1,47 @@
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Development\GALAGA_USFXFVM\Definitions.GALAGA_USFXFVM.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\FabricaDeNaves.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\NaveEnemiga.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\MovimientoNavesEnemigas.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\MovimientoNavesEnemigas.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\SistemaPuntuacionComponente.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\SistemaPuntuacionComponente.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveEnemiga.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\FabricaDeNaves.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\NaveCaza.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveCaza.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\NaveNodriza.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\PlanoNaveNodriza.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\PlanoNaveNodriza.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\Armas.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\Armas.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\Escudos.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\Escudos.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveNodriza.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\NaveTanque.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveTanque.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\NaveTransporte.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveTransporte.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\NaveKamikaze.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveKamikaze.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\NaveCazagen1.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveCazagen1.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\NaveCazagen2.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\NaveCazagen2.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\InstanciaJuegoNivel.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\FacadeDificultadJuego.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/NoExportTypes.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Math/UnitConversion.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Math/UnitConversion.inl
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Internationalization/PolyglotTextData.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\AssetRegistry/ARFilter.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\FacadeDificultadJuego.generated.h
+D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\InstanciaJuegoNivel.generated.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/DialogueTypes.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.generated.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
+D:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
