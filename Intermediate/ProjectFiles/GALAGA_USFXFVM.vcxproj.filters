@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\GALAGA_USFXFVM.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F0E26932-395B-4C5D-9AF5-625D7D49F3C4}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\GALAGA_USFXFVM.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\GALAGA_USFXFVMEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.editorconfig" />
+    <None Include="..\..\GALAGA_USFXFVM.rar" />
+    <None Include="..\..\shadertoolsconfig.json" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{D9B8AF26-2365-4751-BAE3-33DAD2A80FE7}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\GALAGA_USFXFVM">
+      <UniqueIdentifier>{48B76538-B728-4E1C-8E71-E60EA8141EC7}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\ArmaDN.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\ArmaDN.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\ArmaDP.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\ArmaDP.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\Armas.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\Armas.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\BuilderNaveNodriza.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\BuilderNaveNodriza.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\ConfiguracionNaveNodriza.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\ConfiguracionNaveNodriza.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EscudoN.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EscudoN.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\Escudos.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\Escudos.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\FabricaDeNaves.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\FabricaDeNaves.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\FacadeDificultadJuego.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\FacadeDificultadJuego.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\GALAGA_USFXFVM\GALAGA_USFXFVM.Build.cs">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\GALAGA_USFXFVM.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\GALAGA_USFXFVM.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\GALAGA_USFXFVMGameMode.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\GALAGA_USFXFVMGameMode.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\GALAGA_USFXFVMPawn.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\GALAGA_USFXFVMPawn.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\GALAGA_USFXFVMProjectile.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\GALAGA_USFXFVMProjectile.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\InstanciaJuegoNivel.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\InstanciaJuegoNivel.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\MenuGamemode.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\MenuGamemode.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\MenuWidget.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\MenuWidget.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\MovimientoNavesEnemigas.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\MovimientoNavesEnemigas.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveCaza.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveCaza.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveCazagen1.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveCazagen1.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveCazagen2.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveCazagen2.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveEnemiga.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveEnemiga.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveKamikaze.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveKamikaze.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveNodriza.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveNodriza.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveNodrizaDirector.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveNodrizaDirector.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveNodrizaNiv1.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveNodrizaNiv1.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveTanque.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveTanque.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\NaveTransporte.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\NaveTransporte.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\PlanoNaveNodriza.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\PlanoNaveNodriza.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\ProyectilExplosivo.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\ProyectilExplosivo.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\ProyectilParabolico.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\ProyectilParabolico.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\SistemaPuntuacionComponente.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\SistemaPuntuacionComponente.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

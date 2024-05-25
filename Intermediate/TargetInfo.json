@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "GALAGA_USFXFVM",
+			"Path": "D:\\tercer semestres\\lab programacion avanzada\\GALAGA_USFXFVM\\Source\\GALAGA_USFXFVM.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "GALAGA_USFXFVMEditor",
+			"Path": "D:\\tercer semestres\\lab programacion avanzada\\GALAGA_USFXFVM\\Source\\GALAGA_USFXFVMEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
