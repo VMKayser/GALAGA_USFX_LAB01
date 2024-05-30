@@ -6,6 +6,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
 #include "NaveEnemiga.h"
+#include "GALAGA_USFXFVMPawn.h"
 
 float AGALAGA_USFXFVMProjectile::DanioPredeterminado = 1.0f;
 
@@ -49,6 +50,18 @@ void AGALAGA_USFXFVMProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* Othe
 	{
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
 	}
+	if (OtherActor && (OtherActor != this) && OtherComp)
+	{
+		// Verificar si el otro actor es tu nave
+		AGALAGA_USFXFVMPawn* Pawn = Cast<AGALAGA_USFXFVMPawn>(OtherActor);
+		if (Pawn)
+		{
+			// Calcular el daño que el proyectil inflige al impactar
+			float DamageAmount = 5.0f; // Puedes ajustar este valor según tus necesidades
 
+			// Llamar a la función TakeDamage de tu nave para aplicar el daño
+			Pawn->TakeDamage(DamageAmount);
+		}
+	}
 	Destroy();
 }

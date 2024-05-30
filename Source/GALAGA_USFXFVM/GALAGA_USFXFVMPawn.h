@@ -75,8 +75,13 @@ public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EstadisticasJugaor")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EstadisticasJugador")
 	float VidaJugador;
+	
+public:
+	FORCEINLINE float GetVidaJugador() const { return VidaJugador; }
+	void TakeDamage(float Damage);
+	FORCEINLINE void SetVidaJugador(float NewLife) { VidaJugador = NewLife; }
 public:
 	static float VidaJugadorPredeterminada;
 };

@@ -46,7 +46,7 @@ void UFacadeDificultadJuego::SetValoresJugador(int dificultadNivel)
         break;
     default:
         AGALAGA_USFXFVMProjectile::DanioPredeterminado = 20.0f;
-        AGALAGA_USFXFVMPawn::VidaJugadorPredeterminada = 400.0f;
+        AGALAGA_USFXFVMPawn::VidaJugadorPredeterminada = 100.0f;
         break;
     }
 }
@@ -116,7 +116,7 @@ void UFacadeDificultadJuego::SetValoresNivel(int dificultadNivel, const FValores
     {
         CrearNivel(InstanciaJuegoNivel->NumeroNivel);
 
-        GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Dificultad Jueasdfasfdasfgo"));
+        
     }
 
     

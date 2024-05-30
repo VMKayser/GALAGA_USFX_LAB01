@@ -8,7 +8,10 @@
 #include "MenuWidget.h"
 #include "NaveNodrizaDirector.h"
 #include "InstanciaJuegoNivel.h"
+#include "PublicadorVidaJugador.h"
+#include "PantallaFinDeJuego.h"
 #include "GameFramework/PlayerController.h"
+
 
 
 
@@ -20,7 +23,9 @@ AGALAGA_USFXFVMGameMode::AGALAGA_USFXFVMGameMode()
 
 	// Creamos un nuevo objeto de AFabricaDeNaves y lo asignamos a la variable FabricaDeNaves
 	
+
 	FacadeDificultadJuego = CreateDefaultSubobject<UFacadeDificultadJuego>(TEXT("FacadeDificultadJuego"));
+	
 }
 void AGALAGA_USFXFVMGameMode::Tick(float DeltaTime)
 {
@@ -32,7 +37,12 @@ void AGALAGA_USFXFVMGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 	DificultadJuego();
+	APublicadorVidaJugador* pub = nullptr;
 
+	pub = GetWorld()->SpawnActor<APublicadorVidaJugador>(FVector(0.0f, 0.0f, 0.0f), FRotator::ZeroRotator);
+	APantallaFinDeJuego* pant = nullptr;
+	pant = GetWorld()->SpawnActor<APantallaFinDeJuego>(FVector(10.0f, 0.0f, 0.0f), FRotator::ZeroRotator);
+	
 }
 
 

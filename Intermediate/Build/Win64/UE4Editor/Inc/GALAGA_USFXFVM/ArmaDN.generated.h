@@ -22,7 +22,8 @@ private: \
 	friend struct Z_Construct_UClass_AArmaDN_Statics; \
 public: \
 	DECLARE_CLASS(AArmaDN, AArmas, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/GALAGA_USFXFVM"), NO_API) \
-	DECLARE_SERIALIZER(AArmaDN)
+	DECLARE_SERIALIZER(AArmaDN) \
+	virtual UObject* _getUObject() const override { return const_cast<AArmaDN*>(this); }
 
 
 #define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_ArmaDN_h_15_INCLASS \
@@ -31,7 +32,8 @@ private: \
 	friend struct Z_Construct_UClass_AArmaDN_Statics; \
 public: \
 	DECLARE_CLASS(AArmaDN, AArmas, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/GALAGA_USFXFVM"), NO_API) \
-	DECLARE_SERIALIZER(AArmaDN)
+	DECLARE_SERIALIZER(AArmaDN) \
+	virtual UObject* _getUObject() const override { return const_cast<AArmaDN*>(this); }
 
 
 #define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_ArmaDN_h_15_STANDARD_CONSTRUCTORS \

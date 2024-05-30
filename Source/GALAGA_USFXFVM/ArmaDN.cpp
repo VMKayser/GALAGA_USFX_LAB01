@@ -4,6 +4,7 @@
 #include"ProyectilExplosivo.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "PublicadorVidaJugador.h"
 
 AArmaDN::AArmaDN() {
     // Configurar la malla del arma (asegúrate de que ShipMesh tenga asignado el mesh correcto en el editor)
@@ -14,17 +15,37 @@ AArmaDN::AArmaDN() {
     SetVelocidad(0.2f); // Ajusta la velocidad según tus necesidades
     // Usamos un valor especial para representar munición infinita
 	SetDireccion(FVector(90.f, 0.f, 0.f)); // Puedes ajustar la posición inicial del arma si es necesario
-	SetMunicion(3);
+	SetMunicion(100);
 
 	bCanFire = true;
+	band = false;
+	band2 = false;
 	
 }
 
 void AArmaDN::Tick(float DeltaTime) {
     Super::Tick(DeltaTime);
-	Disparar();
+	if (band2){
+		Disparar();
+	}
+	
     // Llamar al método Disparar() en cada tick para disparar continuamente
     
+}
+
+void AArmaDN::BeginPlay()
+{
+	Super::BeginPlay();
+	// Suscribirse al publicador de vida del jugador
+	PublicadorVidaJugador = Cast<APublicadorVidaJugador>(UGameplayStatics::GetActorOfClass(GetWorld(), APublicadorVidaJugador::StaticClass()));
+	if (PublicadorVidaJugador)
+	{
+		PublicadorVidaJugador->Suscribir(this);
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("El publicador de vida del jugador no existe"));
+	}
 }
 
 void AArmaDN::Disparar()
@@ -35,16 +56,19 @@ void AArmaDN::Disparar()
 		{
 			municion--;
 			// Obtener la rotación de disparo (hacia adelante a lo largo del eje X)
-			const FRotator FireRotation = ( - GetActorForwardVector()).Rotation();
+			const FRotator FireRotation = (  GetActorForwardVector()).Rotation();
 			// Obtener la ubicación de disparo (desde la posición del Pawn con un desplazamiento)
-			const FVector SpawnLocation = GetActorLocation() - GetActorForwardVector() * direccion.X;
+			const FVector SpawnLocation = GetActorLocation() +GetActorForwardVector() * direccion.X;
 
 			UWorld* const World = GetWorld();
 			if (World != nullptr)
 			{
 				// Generar el proyectil
 				AGALAGA_USFXFVMProjectile* Projectile = World->SpawnActor<AGALAGA_USFXFVMProjectile>(SpawnLocation, FireRotation);
-
+				if(band)
+				{
+				AGALAGA_USFXFVMProjectile* Projectile1 = World->SpawnActor<AGALAGA_USFXFVMProjectile>(SpawnLocation+FVector(0.0f,30.0f,0.0f), FireRotation);
+				}
 				if (Projectile != nullptr)
 				{
 					// Configurar el proyectil (velocidad, tiempo de vida, etc.) si es necesario
@@ -75,6 +99,35 @@ void AArmaDN::ShotTimerExpired()
 
 void AArmaDN::Recargar() {
 	// Recargar la munición
-	municion = 3;
+	municion = 100;
 
+}
+void AArmaDN::Actualizar(APublicadorEventos* PublicadorEventos)
+{
+	
+		APublicadorVidaJugador* PublicadorVida = Cast<APublicadorVidaJugador>(PublicadorEventos);
+		if (PublicadorVida) {
+			float VidaJugador = PublicadorVida->GetVidaJugador();
+			if (VidaJugador <= 50.0f) {
+
+				band = true;
+				DestruirSubscripcion();
+			}
+			else if (VidaJugador <= 75.0f&&!band) {
+				
+				band = false;
+				band2 = true;
+			}
+		}
+	
+
+}
+
+
+void AArmaDN::DestruirSubscripcion()
+{
+	if (PublicadorVidaJugador)
+	{
+		PublicadorVidaJugador->Desuscribir(this);
+	}
 }

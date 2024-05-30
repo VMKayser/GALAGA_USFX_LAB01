@@ -9,7 +9,7 @@
 AMenuGamemode::AMenuGamemode()
 {
     // Encuentra el Widget Blueprint y asigna la clase a MainMenuWidgetClass
-    static ConstructorHelpers::FClassFinder<UUserWidget> MenuWidgetClass(TEXT("/Game/UI/DisenoMenuPrnicipal"));
+    static ConstructorHelpers::FClassFinder<UUserWidget> MenuWidgetClass(TEXT("/Game/UI/DisenoMenuPrnicipal")); 
     if (MenuWidgetClass.Succeeded())
     {
         MainMenuWidgetClass = MenuWidgetClass.Class;

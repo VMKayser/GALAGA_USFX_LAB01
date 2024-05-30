@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeArmaDN() {}
 	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_AArmaDN();
 	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_AArmas();
 	UPackage* Z_Construct_UPackage__Script_GALAGA_USFXFVM();
+	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_USubscriptorEvento_NoRegister();
 // End Cross Module References
 	void AArmaDN::StaticRegisterNativesAArmaDN()
 	{
@@ -31,6 +32,7 @@ void EmptyLinkFunctionForGeneratedCodeArmaDN() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -45,6 +47,9 @@ void EmptyLinkFunctionForGeneratedCodeArmaDN() {}
 		{ "ModuleRelativePath", "ArmaDN.h" },
 	};
 #endif
+		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AArmaDN_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_USubscriptorEvento_NoRegister, (int32)VTABLE_OFFSET(AArmaDN, ISubscriptorEvento), false },
+		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AArmaDN_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AArmaDN>::IsAbstract,
 	};
@@ -55,11 +60,11 @@ void EmptyLinkFunctionForGeneratedCodeArmaDN() {}
 		DependentSingletons,
 		nullptr,
 		nullptr,
-		nullptr,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
 		0,
-		0,
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AArmaDN_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AArmaDN_Statics::Class_MetaDataParams))
 	};
@@ -72,7 +77,7 @@ void EmptyLinkFunctionForGeneratedCodeArmaDN() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AArmaDN, 3523649630);
+	IMPLEMENT_CLASS(AArmaDN, 3000369667);
 	template<> GALAGA_USFXFVM_API UClass* StaticClass<AArmaDN>()
 	{
 		return AArmaDN::StaticClass();

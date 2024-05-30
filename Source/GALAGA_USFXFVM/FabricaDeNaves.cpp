@@ -9,7 +9,7 @@
 #include "NaveCazagen2.h"
 #include "InstanciaJuegoNivel.h"
 #include "Kismet/GameplayStatics.h"
-  
+#include "PantallaFinDeJuego.h"
 
 AFabricaDeNaves::AFabricaDeNaves()
 {

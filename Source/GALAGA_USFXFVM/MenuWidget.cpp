@@ -15,6 +15,12 @@ UMenuWidget::UMenuWidget(const FObjectInitializer& ObjectInitializer) : Super(Ob
 
 void UMenuWidget::IniciarJuego()
 {
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+	if (PlayerController)
+	{
+		FInputModeGameOnly InputMode;
+		PlayerController->SetInputMode(InputMode);
+	}
 	UGameplayStatics::OpenLevel(this, FName("/Game/TwinStickCPP/Maps/TwinStickExampleMap"));
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("StartGame"));
 	

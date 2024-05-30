@@ -2,6 +2,7 @@
 #include "NaveEnemiga.h"
 #include "GALAGA_USFXFVMProjectile.h"
 
+
 // Sets default values
 USistemaPuntuacionComponente* ANaveEnemiga::SharedSistemaPuntuacionComponente = nullptr;
 ANaveEnemiga::ANaveEnemiga()
@@ -70,3 +71,32 @@ void ANaveEnemiga::OnProjectileHit(UPrimitiveComponent* HitComp, AActor* OtherAc
     }
 
 }
+
+//
+//void ANaveEnemiga::OnProjectileHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+//{
+//
+//    // Verificar si el otro actor es un proyectil
+//    if (OtherActor && OtherActor->IsA(AGALAGA_USFXFVMProjectile::StaticClass()))
+//    {
+//        AGALAGA_USFXFVMProjectile* Projectile = Cast<AGALAGA_USFXFVMProjectile>(OtherActor);
+//        if (Projectile)
+//        {
+//            DanioRecibido = Projectile->GetDanioCausado();
+//        }
+//        vida -= DanioRecibido;
+//        if (vida <= 0)
+//        {
+//            Destroy();
+//            if (SharedSistemaPuntuacionComponente)
+//            {
+//                SharedSistemaPuntuacionComponente->SumarPuntaje(10.0f, nombre);
+//            }
+//            else
+//            {
+//                UE_LOG(LogTemp, Warning, TEXT("SistemaPuntuacionComponente is null!"));
+//            }
+//        }
+//    }
+//
+//}

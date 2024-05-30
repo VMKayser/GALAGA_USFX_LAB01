@@ -7,6 +7,7 @@
 #include "FabricaDeNaves.h"
 #include "NaveNodrizaNiv1.h"
 #include "FacadeDificultadJuego.h"
+#include "PublicadorVidaJugador.h"
 #include "GALAGA_USFXFVMGameMode.generated.h"
 
 
@@ -31,5 +32,6 @@ protected:
 	//void InicializarFabricaDeNaves();
 	//void CheckAndBuildNaveNodriza();
 	void DificultadJuego();
+	
 };
 

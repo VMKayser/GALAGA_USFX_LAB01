@@ -11,6 +11,7 @@
 #include "Engine/CollisionProfile.h"
 #include "Engine/StaticMesh.h"
 #include "Kismet/GameplayStatics.h"
+
 #include "Sound/SoundBase.h"
 
 const FName AGALAGA_USFXFVMPawn::MoveForwardBinding("MoveForward");
@@ -20,6 +21,7 @@ const FName AGALAGA_USFXFVMPawn::FireRightBinding("FireRight");
 float AGALAGA_USFXFVMPawn::VidaJugadorPredeterminada = 0.0f;
 AGALAGA_USFXFVMPawn::AGALAGA_USFXFVMPawn()
 {	
+
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	// Create the mesh component
 	ShipMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
@@ -51,6 +53,8 @@ AGALAGA_USFXFVMPawn::AGALAGA_USFXFVMPawn()
 	FireRate = 0.1f;
 	bCanFire = true;
 	VidaJugador = VidaJugadorPredeterminada;
+	//crear referencia al publicador
+	
 }
 
 void AGALAGA_USFXFVMPawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -66,6 +70,7 @@ void AGALAGA_USFXFVMPawn::SetupPlayerInputComponent(class UInputComponent* Playe
 
 void AGALAGA_USFXFVMPawn::Tick(float DeltaSeconds)
 {
+
 	// Find movement direction
 	const float ForwardValue = GetInputAxisValue(MoveForwardBinding);
 	const float RightValue = GetInputAxisValue(MoveRightBinding);
@@ -137,4 +142,13 @@ void AGALAGA_USFXFVMPawn::ShotTimerExpired()
 {
 	bCanFire = true;
 }
+void AGALAGA_USFXFVMPawn::TakeDamage(float DamageAmount)
+{
+	// Reducir la vida del Pawn
+	VidaJugador -= DamageAmount;
 
+	// Mensaje de depuración para verificar el cambio en la vida
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Vida Jugador: ") + FString::SanitizeFloat(VidaJugador));
+
+	// Aquí podrías agregar cualquier otra lógica relacionada con el manejo del daño
+}

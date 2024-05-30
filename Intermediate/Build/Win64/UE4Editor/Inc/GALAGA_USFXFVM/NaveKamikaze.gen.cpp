@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveKamikaze() {}
 	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_ANaveKamikaze();
 	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_ANaveEnemiga();
 	UPackage* Z_Construct_UPackage__Script_GALAGA_USFXFVM();
+	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_USubscriptorEvento_NoRegister();
 // End Cross Module References
 	void ANaveKamikaze::StaticRegisterNativesANaveKamikaze()
 	{
@@ -31,6 +32,12 @@ void EmptyLinkFunctionForGeneratedCodeNaveKamikaze() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_tpersecucion_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_tpersecucion;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -45,6 +52,19 @@ void EmptyLinkFunctionForGeneratedCodeNaveKamikaze() {}
 		{ "ModuleRelativePath", "NaveKamikaze.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANaveKamikaze_Statics::NewProp_tpersecucion_MetaData[] = {
+		{ "Category", "Persecucion" },
+		{ "ModuleRelativePath", "NaveKamikaze.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ANaveKamikaze_Statics::NewProp_tpersecucion = { "tpersecucion", nullptr, (EPropertyFlags)0x0040000000000001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANaveKamikaze, tpersecucion), METADATA_PARAMS(Z_Construct_UClass_ANaveKamikaze_Statics::NewProp_tpersecucion_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANaveKamikaze_Statics::NewProp_tpersecucion_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANaveKamikaze_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANaveKamikaze_Statics::NewProp_tpersecucion,
+	};
+		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ANaveKamikaze_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_USubscriptorEvento_NoRegister, (int32)VTABLE_OFFSET(ANaveKamikaze, ISubscriptorEvento), false },
+		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ANaveKamikaze_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ANaveKamikaze>::IsAbstract,
 	};
@@ -54,12 +74,12 @@ void EmptyLinkFunctionForGeneratedCodeNaveKamikaze() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
-		nullptr,
+		Z_Construct_UClass_ANaveKamikaze_Statics::PropPointers,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ANaveKamikaze_Statics::PropPointers),
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ANaveKamikaze_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ANaveKamikaze_Statics::Class_MetaDataParams))
 	};
@@ -72,7 +92,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveKamikaze() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveKamikaze, 2472415011);
+	IMPLEMENT_CLASS(ANaveKamikaze, 871885342);
 	template<> GALAGA_USFXFVM_API UClass* StaticClass<ANaveKamikaze>()
 	{
 		return ANaveKamikaze::StaticClass();

@@ -156,7 +156,7 @@ void EmptyLinkFunctionForGeneratedCodeGALAGA_USFXFVMPawn() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGALAGA_USFXFVMPawn_Statics::NewProp_FireSound = { "FireSound", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGALAGA_USFXFVMPawn, FireSound), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGALAGA_USFXFVMPawn_Statics::NewProp_FireSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGALAGA_USFXFVMPawn_Statics::NewProp_FireSound_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGALAGA_USFXFVMPawn_Statics::NewProp_VidaJugador_MetaData[] = {
-		{ "Category", "EstadisticasJugaor" },
+		{ "Category", "EstadisticasJugador" },
 		{ "ModuleRelativePath", "GALAGA_USFXFVMPawn.h" },
 	};
 #endif
@@ -198,7 +198,7 @@ void EmptyLinkFunctionForGeneratedCodeGALAGA_USFXFVMPawn() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGALAGA_USFXFVMPawn, 3380388859);
+	IMPLEMENT_CLASS(AGALAGA_USFXFVMPawn, 965036859);
 	template<> GALAGA_USFXFVM_API UClass* StaticClass<AGALAGA_USFXFVMPawn>()
 	{
 		return AGALAGA_USFXFVMPawn::StaticClass();

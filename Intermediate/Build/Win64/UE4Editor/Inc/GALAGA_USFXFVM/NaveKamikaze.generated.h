@@ -13,28 +13,30 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define GALAGA_USFXFVM_NaveKamikaze_generated_h
 
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_SPARSE_DATA
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_RPC_WRAPPERS
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_INCLASS_NO_PURE_DECLS \
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_SPARSE_DATA
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_RPC_WRAPPERS
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesANaveKamikaze(); \
 	friend struct Z_Construct_UClass_ANaveKamikaze_Statics; \
 public: \
 	DECLARE_CLASS(ANaveKamikaze, ANaveEnemiga, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/GALAGA_USFXFVM"), NO_API) \
-	DECLARE_SERIALIZER(ANaveKamikaze)
+	DECLARE_SERIALIZER(ANaveKamikaze) \
+	virtual UObject* _getUObject() const override { return const_cast<ANaveKamikaze*>(this); }
 
 
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_INCLASS \
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_INCLASS \
 private: \
 	static void StaticRegisterNativesANaveKamikaze(); \
 	friend struct Z_Construct_UClass_ANaveKamikaze_Statics; \
 public: \
 	DECLARE_CLASS(ANaveKamikaze, ANaveEnemiga, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/GALAGA_USFXFVM"), NO_API) \
-	DECLARE_SERIALIZER(ANaveKamikaze)
+	DECLARE_SERIALIZER(ANaveKamikaze) \
+	virtual UObject* _getUObject() const override { return const_cast<ANaveKamikaze*>(this); }
 
 
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_STANDARD_CONSTRUCTORS \
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ANaveKamikaze(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ANaveKamikaze) \
@@ -47,7 +49,7 @@ private: \
 public:
 
 
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_ENHANCED_CONSTRUCTORS \
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ANaveKamikaze(ANaveKamikaze&&); \
@@ -58,28 +60,31 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ANaveKamikaze)
 
 
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_PRIVATE_PROPERTY_OFFSET
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_12_PROLOG
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_GENERATED_BODY_LEGACY \
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__tpersecucion() { return STRUCT_OFFSET(ANaveKamikaze, tpersecucion); }
+
+
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_13_PROLOG
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_PRIVATE_PROPERTY_OFFSET \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_SPARSE_DATA \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_RPC_WRAPPERS \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_INCLASS \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_STANDARD_CONSTRUCTORS \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_PRIVATE_PROPERTY_OFFSET \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_SPARSE_DATA \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_RPC_WRAPPERS \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_INCLASS \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_GENERATED_BODY \
+#define GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_PRIVATE_PROPERTY_OFFSET \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_SPARSE_DATA \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_INCLASS_NO_PURE_DECLS \
-	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_15_ENHANCED_CONSTRUCTORS \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_PRIVATE_PROPERTY_OFFSET \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_SPARSE_DATA \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_INCLASS_NO_PURE_DECLS \
+	GALAGA_USFXFVM_Source_GALAGA_USFXFVM_NaveKamikaze_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

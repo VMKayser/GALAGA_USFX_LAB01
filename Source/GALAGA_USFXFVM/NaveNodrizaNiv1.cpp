@@ -96,7 +96,7 @@ void ANaveNodrizaNiv1::ConstruirArma(const TMap<FString, int32>& TiposDeArma, FV
                 NaveNodriza->AddInstanceComponent(NewArmaMesh);  // Asegura que el componente sea reconocido como parte del actor principal.
             }
 
-            GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Arma %s agregada a la nave nodriza"), *ClaseArma));
+            
         }
     }
 }
@@ -124,7 +124,7 @@ void ANaveNodrizaNiv1::ConstruirEscudo(const TMap<FString, int32>& TiposDeEscudo
                 NaveNodriza->AddInstanceComponent(NewEscudoMesh);  // Asegura que el componente sea reconocido como parte del actor principal.
             }
 
-            GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Escudo %s agregado a la nave nodriza"), *ClaseEscudo));
+           
         }
     }
 }
