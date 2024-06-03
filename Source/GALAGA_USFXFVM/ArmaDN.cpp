@@ -1,16 +1,21 @@
 #include "ArmaDN.h"
 #include "Components/StaticMeshComponent.h"
 #include "GALAGA_USFXFVMProjectile.h"
-#include"ProyectilExplosivo.h"
+#include "ProyectilExplosivo.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "PublicadorVidaJugador.h"
+#include "Engine/StaticMesh.h"
+#include "EstrategiaAtaqueExplosivo.h"
+#include "EstrategiaAtaqueEscudo.h"	
+#include "EstrategiaAtaqueNormal.h"
+
+
 
 AArmaDN::AArmaDN() {
     // Configurar la malla del arma (asegúrate de que ShipMesh tenga asignado el mesh correcto en el editor)
     static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_NarrowCapsule.Shape_NarrowCapsule'"));
-    mallaArma->SetStaticMesh(ShipMesh.Object);
-
+	mallaArma->SetStaticMesh(ShipMesh.Object);
     // Configurar la velocidad y la munición
     SetVelocidad(0.2f); // Ajusta la velocidad según tus necesidades
     // Usamos un valor especial para representar munición infinita
@@ -18,17 +23,20 @@ AArmaDN::AArmaDN() {
 	SetMunicion(100);
 
 	bCanFire = true;
-	band = false;
-	band2 = false;
+	
+
+
 	
 }
 
 void AArmaDN::Tick(float DeltaTime) {
     Super::Tick(DeltaTime);
-	if (band2){
-		Disparar();
-	}
 	
+	if (Estrategia)
+		{
+		Estrategia->MoverArma(this, DeltaTime);
+		Estrategia->Disparar(this);
+	}
     // Llamar al método Disparar() en cada tick para disparar continuamente
     
 }
@@ -46,48 +54,13 @@ void AArmaDN::BeginPlay()
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("El publicador de vida del jugador no existe"));
 	}
+
+	
+	
 }
 
 void AArmaDN::Disparar()
 {
-	
-	if (municion> 0) {// Si es posible disparar de nuevo
-		if (bCanFire)
-		{
-			municion--;
-			// Obtener la rotación de disparo (hacia adelante a lo largo del eje X)
-			const FRotator FireRotation = (  GetActorForwardVector()).Rotation();
-			// Obtener la ubicación de disparo (desde la posición del Pawn con un desplazamiento)
-			const FVector SpawnLocation = GetActorLocation() +GetActorForwardVector() * direccion.X;
-
-			UWorld* const World = GetWorld();
-			if (World != nullptr)
-			{
-				// Generar el proyectil
-				AGALAGA_USFXFVMProjectile* Projectile = World->SpawnActor<AGALAGA_USFXFVMProjectile>(SpawnLocation, FireRotation);
-				if(band)
-				{
-				AGALAGA_USFXFVMProjectile* Projectile1 = World->SpawnActor<AGALAGA_USFXFVMProjectile>(SpawnLocation+FVector(0.0f,30.0f,0.0f), FireRotation);
-				}
-				if (Projectile != nullptr)
-				{
-					// Configurar el proyectil (velocidad, tiempo de vida, etc.) si es necesario
-				}
-
-				// Establecer el temporizador para el próximo disparo
-				World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AArmaDN::ShotTimerExpired, velocidad);
-
-
-				// Evitar disparar repetidamente
-				bCanFire = false;
-			}
-		}
-	}
-	else {
-		// Si no hay munición, recargar
-		FTimerHandle TimerHandle_Recarga;
-		GetWorld()->GetTimerManager().SetTimer(TimerHandle_Recarga, this, &AArmaDN::Recargar, 5.0f, false);
-	}
 	
 }
 
@@ -104,24 +77,61 @@ void AArmaDN::Recargar() {
 }
 void AArmaDN::Actualizar(APublicadorEventos* PublicadorEventos)
 {
-	
-		APublicadorVidaJugador* PublicadorVida = Cast<APublicadorVidaJugador>(PublicadorEventos);
-		if (PublicadorVida) {
-			float VidaJugador = PublicadorVida->GetVidaJugador();
-			if (VidaJugador <= 50.0f) {
+	/*APublicadorVidaJugador* PublicadorVida = Cast<APublicadorVidaJugador>(PublicadorEventos);
+	if (PublicadorVida) {
+		float VidaJugador = PublicadorVida->GetVidaJugador();
 
-				band = true;
-				DestruirSubscripcion();
-			}
-			else if (VidaJugador <= 75.0f&&!band) {
-				
-				band = false;
-				band2 = true;
-			}
+		if (VidaJugador == 60.0f)
+		{
+			band2 = true;
 		}
+		else if (VidaJugador == 50.0f)
+		{
+			band = true;
+		}*/
+
+		//if (VidaJugador == 60.0f) {
+		//	// Cambiar a una estrategia más agresiva
+		//	SetEstrategia(GetWorld()->SpawnActor<AEstrategiaSuicida>(AEstrategiaSuicida::StaticClass()));
+		//	EjecutarEstrategia();
+		//}
+		//else if (VidaJugador == 70.0f) {
+		//	// Cambiar a una estrategia defensiva
+		//	SetEstrategia(GetWorld()->SpawnActor<AEstrategiaEscudo>(AEstrategiaEscudo::StaticClass()));
+		//	EjecutarEstrategia();
+		//}
+		//else if (VidaJugador==80.0f)
+		//{
+		//	SetEstrategia(GetWorld()->SpawnActor<AEstrategiaJutsuMulticlones>(AEstrategiaJutsuMulticlones::StaticClass()));
+		//	EjecutarEstrategia();
+		//	// Mantener la estrategia actual
+	//	//}
+	//}
 	
 
 }
+
+void AArmaDN::SetEstrategia(AActor* EstrategiaActual)
+{
+	Estrategia = Cast<IEstrategiasArmasJugador>(EstrategiaActual);
+	if (!Estrategia)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("La estrategia no es válida"));
+	}
+
+}
+
+void AArmaDN::EjecutarEstrategia()
+{
+	if (Estrategia) 
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Ejecutando Estrategia"));
+		Estrategia->Disparar(this);
+		
+
+	}
+}
+
 
 
 void AArmaDN::DestruirSubscripcion()
@@ -130,4 +140,34 @@ void AArmaDN::DestruirSubscripcion()
 	{
 		PublicadorVidaJugador->Desuscribir(this);
 	}
+}
+
+void AArmaDN::CambiarMalla(UStaticMesh* MallaNueva)
+{
+	if (MallaNueva)
+	{
+		mallaArma->SetStaticMesh(MallaNueva);
+		
+	}
+}
+
+
+void AArmaDN::CambiarEstrategia(int32 NumeroEstrategia)
+{
+	switch (NumeroEstrategia)
+	{
+	case 1:
+		SetEstrategia(GetWorld()->SpawnActor<AEstrategiaAtaqueEscudo>(AEstrategiaAtaqueEscudo::StaticClass()));
+		break;
+	case 2:
+		SetEstrategia(GetWorld()->SpawnActor<AEstrategiaAtaqueExplosivo>(AEstrategiaAtaqueExplosivo::StaticClass()));
+		break;
+	case 3:
+		SetEstrategia(GetWorld()->SpawnActor<AEstrategiaAtaqueNormal>(AEstrategiaAtaqueNormal::StaticClass()));
+		break;
+	default:
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Número de estrategia no válido"));
+		return;
+	}
+
 }

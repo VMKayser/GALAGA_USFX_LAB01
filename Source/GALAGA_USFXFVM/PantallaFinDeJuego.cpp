@@ -88,7 +88,6 @@ void APantallaFinDeJuego::MostrarGameOver()
 		}
 	}
 	DestruirSubscripcion();
-	UGameplayStatics::OpenLevel(this, FName("/Game/TwinStickCPP/Maps/TwinStickExampleMap"));
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Fin juego"));
 	
 }

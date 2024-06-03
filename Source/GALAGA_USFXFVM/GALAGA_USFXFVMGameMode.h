@@ -20,7 +20,6 @@ class AGALAGA_USFXFVMGameMode : public AGameModeBase
 public:
 	AGALAGA_USFXFVMGameMode();
 	virtual void Tick(float DeltaTime) override;
-
 protected:
 	// Called when the game starts or when spawned
 	

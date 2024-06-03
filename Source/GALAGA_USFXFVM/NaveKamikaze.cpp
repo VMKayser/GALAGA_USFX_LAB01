@@ -10,7 +10,6 @@
 ANaveKamikaze::ANaveKamikaze() {
     static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/NaveEnemigaKamikaze.NaveEnemigaKamikaze"));
     mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
-    band = false;
 }
 void ANaveKamikaze::Tick(float DeltaTime)
 {
@@ -75,11 +74,11 @@ void ANaveKamikaze::Actualizar(APublicadorEventos* PublicadorEventos)
     if (PublicadorVida)
     {
         float VidaJugador = PublicadorVida->GetVidaJugador();
-        if (VidaJugador == 50.0f)
+        if (VidaJugador == 40.0f)
         {
             // Obtener la referencia al jugador
             band = true;
-            DestruirSubscripcion();
+            
         }
     }
 }

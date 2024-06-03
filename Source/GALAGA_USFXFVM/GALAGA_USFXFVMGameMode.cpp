@@ -10,6 +10,7 @@
 #include "InstanciaJuegoNivel.h"
 #include "PublicadorVidaJugador.h"
 #include "PantallaFinDeJuego.h"
+#include "ArmaDN.h"
 #include "GameFramework/PlayerController.h"
 
 
@@ -37,12 +38,36 @@ void AGALAGA_USFXFVMGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 	DificultadJuego();
-	APublicadorVidaJugador* pub = nullptr;
+	//APublicadorVidaJugador* pub;
 
-	pub = GetWorld()->SpawnActor<APublicadorVidaJugador>(FVector(0.0f, 0.0f, 0.0f), FRotator::ZeroRotator);
+	//pub = GetWorld()->SpawnActor<APublicadorVidaJugador>(APublicadorVidaJugador::StaticClass());
 	APantallaFinDeJuego* pant = nullptr;
 	pant = GetWorld()->SpawnActor<APantallaFinDeJuego>(FVector(10.0f, 0.0f, 0.0f), FRotator::ZeroRotator);
-	
+	//en funcion a la posicion de la nave jugador crear dos arma DN a su lado izquierdo y derecho
+	//AGALAGA_USFXFVMPawn* PlayerPawn = Cast<AGALAGA_USFXFVMPawn>(UGameplayStatics::GetPlayerPawn(this, 0));
+	//if (!PlayerPawn)
+	//{
+	//	return;
+	//}
+	//// Obtener la ubicación y rotación del pawn
+	//FVector PawnLocation = PlayerPawn->GetActorLocation();
+	//FRotator PawnRotation = PlayerPawn->GetActorRotation();
+	//// Crear el arma DN a la izquierda del pawn
+	//AArmaDN* ArmaIzquierda = GetWorld()->SpawnActor<AArmaDN>(PawnLocation - FVector(0, 100, 0), PawnRotation);
+	//// Crear el arma DN a la derecha del pawn
+	//if (ArmaIzquierda)
+	//{
+	//	// Asociar el arma DN a la nave jugador
+	//	ArmaIzquierda->AttachToActor(PlayerPawn, FAttachmentTransformRules::SnapToTargetIncludingScale);
+	//}
+	//AArmaDN* ArmaDerecha = GetWorld()->SpawnActor<AArmaDN>(PawnLocation + FVector(0, 100, 0), PawnRotation);
+	//if (ArmaDerecha)
+	//{
+	//	// Asociar el arma DN a la nave jugador
+	//	ArmaDerecha->AttachToActor(PlayerPawn, FAttachmentTransformRules::SnapToTargetIncludingScale);
+	//}
+
+
 }
 
 

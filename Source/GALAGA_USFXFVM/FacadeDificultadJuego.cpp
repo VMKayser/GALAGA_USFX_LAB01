@@ -75,11 +75,18 @@ void UFacadeDificultadJuego::SetValoresEnemigos(int DificultadNivel, FValoresNav
         ValoresNaveEnemiga.VidaEnemigo = 200.0f;
         ValoresNaveEnemiga.Velocidad = 2000.0f;
         ValoresNaveEnemiga.Dano = 30.0f;
-        ValoresNaveEnemiga.CadenciaDisparo = 0.6f;
+        ValoresNaveEnemiga.CadenciaDisparo = 10.0f;
         ValoresNaveEnemiga.CapacidadMunicion = 20;
         ValoresNaveEnemiga.Experiencia = 100.0f;
         break;
- 
+    default:
+        ValoresNaveEnemiga.VidaEnemigo = 300.0f;
+		ValoresNaveEnemiga.Velocidad = 500.0f;
+		ValoresNaveEnemiga.Dano = 5.0f;
+		ValoresNaveEnemiga.CadenciaDisparo = 3.0f;
+		ValoresNaveEnemiga.CapacidadMunicion = 20;
+		ValoresNaveEnemiga.Experiencia = 25.0f;
+		break;
     }
 
 }
@@ -105,8 +112,8 @@ void UFacadeDificultadJuego::SetValoresNivel(int dificultadNivel, const FValores
         USistemaPuntuacionComponente::MultiplicadorPuntaje = 4.0f;
         break;
     default:
-        NumeroNaves = 10;
-        NumeroFilas = 2;
+        NumeroNaves = 40;
+        NumeroFilas = 5;
         USistemaPuntuacionComponente::MultiplicadorPuntaje = 0.5f;
         break;
     }

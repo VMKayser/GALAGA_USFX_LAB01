@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Armas.h"
 #include "SubscriptorEvento.h"
+#include "EstrategiasArmasJugador.h"
 #include "ArmaDN.generated.h"
 /**
  * 
@@ -13,10 +14,15 @@ UCLASS()
 class GALAGA_USFXFVM_API AArmaDN : public AArmas, public ISubscriptorEvento
 {
 	GENERATED_BODY()
+	
 public:
+	void CambiarMalla(UStaticMesh* MallaNueva);
 	AArmaDN();
 	virtual void Tick(float DeltaTime) override;
 	virtual void Actualizar(APublicadorEventos* PublicadorEventos) override;
+	void SetEstrategia(AActor* EstrategiaActual);
+	void EjecutarEstrategia();
+	void CambiarEstrategia(int32 NumeroEstrategia);
 protected:
 	virtual void BeginPlay() override;
 	virtual void Disparar();
@@ -31,6 +37,7 @@ private:
 	/** Handle for efficient management of ShotTimerExpired timer */
 	FTimerHandle TimerHandle_ShotTimerExpired;
 	class APublicadorVidaJugador* PublicadorVidaJugador;
-	bool band2;
-	bool band;
+	
+	IEstrategiasArmasJugador* Estrategia;
+
 };

@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\GALAGA_USFXFVM.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{389ABD9F-707B-4B0B-BBFE-AB277FC5F4DD}</UniqueIdentifier>
+      <UniqueIdentifier>{3C175CF8-7898-42D9-91C3-541C32FE15CA}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\GALAGA_USFXFVM.Target.cs">
       <Filter>Source</Filter>
@@ -17,7 +17,7 @@
     <None Include="..\..\README.md" />
     <None Include="..\..\shadertoolsconfig.json" />
     <Filter Include="Config">
-      <UniqueIdentifier>{7B76C14D-A56A-4FE2-B687-2D789C7E58D3}</UniqueIdentifier>
+      <UniqueIdentifier>{2FFBD980-482E-4932-9208-13F9FC5D4C8A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -35,7 +35,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\GALAGA_USFXFVM">
-      <UniqueIdentifier>{37C52616-B018-4814-ACAE-30460512110F}</UniqueIdentifier>
+      <UniqueIdentifier>{DE2AD8C8-23B0-4E40-A884-56AB0A711CF4}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\GALAGA_USFXFVM\ArmaDN.cpp">
       <Filter>Source\GALAGA_USFXFVM</Filter>
@@ -77,6 +77,66 @@
       <Filter>Source\GALAGA_USFXFVM</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\GALAGA_USFXFVM\Escudos.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstadoBaseJugador.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstadoBaseJugador.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstadoIntangibleJugador.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstadoIntangibleJugador.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstadoInvencibleJugador.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstadoInvencibleJugador.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstadoNaveJugador.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstadoNaveJugador.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstadoSuperArmaJugador.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstadoSuperArmaJugador.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstrategiaAtaqueEscudo.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstrategiaAtaqueEscudo.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstrategiaAtaqueExplosivo.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstrategiaAtaqueExplosivo.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstrategiaAtaqueNormal.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstrategiaAtaqueNormal.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstrategiaAtaqueSierra.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstrategiaAtaqueSierra.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\EstrategiasArmasJugador.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\EstrategiasArmasJugador.h">
       <Filter>Source\GALAGA_USFXFVM</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\GALAGA_USFXFVM\FabricaDeNaves.cpp">

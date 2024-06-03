@@ -1,7 +1,0 @@
-D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Development\GALAGA_USFXFVM\Definitions.GALAGA_USFXFVM.h
-D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-D:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM/EscudoN.h
-D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Source\GALAGA_USFXFVM\Escudos.h
-D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\Escudos.generated.h
-D:\tercer semestres\lab programacion avanzada\GALAGA_USFXFVM\Intermediate\Build\Win64\UE4Editor\Inc\GALAGA_USFXFVM\EscudoN.generated.h

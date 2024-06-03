@@ -11,13 +11,19 @@
 #include "Engine/CollisionProfile.h"
 #include "Engine/StaticMesh.h"
 #include "Kismet/GameplayStatics.h"
-
+#include "EstadoBaseJugador.h"
+#include "EstadoIntangibleJugador.h"
+#include "EstadoInvencibleJugador.h"
+#include "EstadoSuperArmaJugador.h"
+#include "ArmaDN.h"
 #include "Sound/SoundBase.h"
+#include "Engine/World.h"
 
 const FName AGALAGA_USFXFVMPawn::MoveForwardBinding("MoveForward");
 const FName AGALAGA_USFXFVMPawn::MoveRightBinding("MoveRight");
-const FName AGALAGA_USFXFVMPawn::FireForwardBinding("FireForward");
-const FName AGALAGA_USFXFVMPawn::FireRightBinding("FireRight");
+//comentado para probar la jugabilidad final
+//const FName AGALAGA_USFXFVMPawn::FireForwardBinding("FireForward");
+//const FName AGALAGA_USFXFVMPawn::FireRightBinding("FireRight");
 float AGALAGA_USFXFVMPawn::VidaJugadorPredeterminada = 0.0f;
 AGALAGA_USFXFVMPawn::AGALAGA_USFXFVMPawn()
 {	
@@ -54,6 +60,9 @@ AGALAGA_USFXFVMPawn::AGALAGA_USFXFVMPawn()
 	bCanFire = true;
 	VidaJugador = VidaJugadorPredeterminada;
 	//crear referencia al publicador
+
+	//Inicializar el estado
+
 	
 }
 
@@ -64,8 +73,18 @@ void AGALAGA_USFXFVMPawn::SetupPlayerInputComponent(class UInputComponent* Playe
 	// set up gameplay key bindings
 	PlayerInputComponent->BindAxis(MoveForwardBinding);
 	PlayerInputComponent->BindAxis(MoveRightBinding);
-	PlayerInputComponent->BindAxis(FireForwardBinding);
-	PlayerInputComponent->BindAxis(FireRightBinding);
+	//PlayerInputComponent->BindAxis(FireForwardBinding);
+	//PlayerInputComponent->BindAxis(FireRightBinding);
+	//bind tecla 1
+	PlayerInputComponent->BindAction("CambiarEstrategia1", IE_Pressed, this, &AGALAGA_USFXFVMPawn::CambiarEstrategia1);
+
+	// Bind tecla 2
+
+	PlayerInputComponent->BindAction("CambiarEstrategia2", IE_Pressed, this, &AGALAGA_USFXFVMPawn::CambiarEstrategia2);
+
+	// Bind tecla 3
+	PlayerInputComponent->BindAction("CambiarEstrategia3", IE_Pressed, this, &AGALAGA_USFXFVMPawn::CambiarEstrategia3);
+
 }
 
 void AGALAGA_USFXFVMPawn::Tick(float DeltaSeconds)
@@ -84,64 +103,40 @@ void AGALAGA_USFXFVMPawn::Tick(float DeltaSeconds)
 	// If non-zero size, move this actor
 	if (Movement.SizeSquared() > 0.0f)
 	{
-		const FRotator NewRotation = Movement.Rotation();
+		/*const FRotator NewRotation = Movement.Rotation();*/
 		FHitResult Hit(1.f);
-		RootComponent->MoveComponent(Movement, NewRotation, true, &Hit);
+		RootComponent->MoveComponent(Movement, RootComponent->GetComponentRotation(), true, &Hit);
 		
 		if (Hit.IsValidBlockingHit())
 		{
 			const FVector Normal2D = Hit.Normal.GetSafeNormal2D();
 			const FVector Deflection = FVector::VectorPlaneProject(Movement, Normal2D) * (1.f - Hit.Time);
-			RootComponent->MoveComponent(Deflection, NewRotation, true);
+			RootComponent->MoveComponent(Deflection, RootComponent->GetComponentRotation(), true);
 		}
 	}
 	
 	// Create fire direction vector
-	const float FireForwardValue = GetInputAxisValue(FireForwardBinding);
+	/*const float FireForwardValue = GetInputAxisValue(FireForwardBinding);
 	const float FireRightValue = GetInputAxisValue(FireRightBinding);
-	const FVector FireDirection = FVector(FireForwardValue, FireRightValue, 0.f);
+	const FVector FireDirection = FVector(FireForwardValue, FireRightValue, 0.f);*/
 
-	// Try and fire a shot
-	FireShot(FireDirection);
+	//// Try and fire a shot
+	//FireShot(FireDirection);
+	FireShot();
 }
 
-void AGALAGA_USFXFVMPawn::FireShot(FVector FireDirection)
+void AGALAGA_USFXFVMPawn::FireShot()
 {
-	// If it's ok to fire again
-	if (bCanFire == true)
-	{
-		// If we are pressing fire stick in a direction
-		if (FireDirection.SizeSquared() > 0.0f)
-		{
-			const FRotator FireRotation = FireDirection.Rotation();
-			// Spawn projectile at an offset from this pawn
-			const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
-
-			UWorld* const World = GetWorld();
-			if (World != nullptr)
-			{
-				// spawn the projectile
-				World->SpawnActor<AGALAGA_USFXFVMProjectile>(SpawnLocation, FireRotation);
-			}
-
-			bCanFire = false;
-			World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AGALAGA_USFXFVMPawn::ShotTimerExpired, FireRate);
-
-			// try and play the sound if specified
-			if (FireSound != nullptr)
-			{
-				UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-			}
-
-			bCanFire = false;
-		}
-	}
+	if (EstadoActual){	
+		EstadoActual->Disparar();
+}
 }
 
 void AGALAGA_USFXFVMPawn::ShotTimerExpired()
 {
 	bCanFire = true;
 }
+
 void AGALAGA_USFXFVMPawn::TakeDamage(float DamageAmount)
 {
 	// Reducir la vida del Pawn
@@ -149,6 +144,101 @@ void AGALAGA_USFXFVMPawn::TakeDamage(float DamageAmount)
 
 	// Mensaje de depuración para verificar el cambio en la vida
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Vida Jugador: ") + FString::SanitizeFloat(VidaJugador));
-
+	CambiarEstado();
 	// Aquí podrías agregar cualquier otra lógica relacionada con el manejo del daño
+}
+
+void AGALAGA_USFXFVMPawn::BeginPlay()
+{
+	
+	Super::BeginPlay();
+	//Inicializar los estados
+	EstadoBaseJugador = GetWorld()->SpawnActor<AEstadoBaseJugador>(AEstadoBaseJugador::StaticClass());
+
+	EstadoBaseJugador->SetNaveJugador(this);
+	EstadoIntangibleJugador = GetWorld()->SpawnActor<AEstadoIntangibleJugador>(AEstadoIntangibleJugador::StaticClass());
+	EstadoIntangibleJugador->SetNaveJugador(this);
+	EstadoInvencibleJugador = GetWorld()->SpawnActor<AEstadoInvencibleJugador>(AEstadoInvencibleJugador::StaticClass());
+	EstadoInvencibleJugador->SetNaveJugador(this);
+	EstadoSuperArmaJugador = GetWorld()->SpawnActor<AEstadoSuperArmaJugador>(AEstadoSuperArmaJugador::StaticClass());
+	EstadoSuperArmaJugador->SetNaveJugador(this);
+	SetEstadoActual(EstadoBaseJugador);
+	//Inicializar el estado actuals
+	
+}
+
+void AGALAGA_USFXFVMPawn::CambiarEstado()
+{
+	if(VidaJugador<=40&& VidaJugador>=30)
+	{
+		SetEstadoActual(EstadoSuperArmaJugador);
+		
+	}
+	else if (VidaJugador == 50)
+	{
+		SetEstadoActual(EstadoIntangibleJugador);
+		
+	}
+	else if (VidaJugador == 60)
+	{
+	
+		SetEstadoActual(EstadoInvencibleJugador);
+		
+	}
+	else
+	{
+		SetEstadoActual(EstadoBaseJugador);
+	}
+	
+	
+}
+
+void AGALAGA_USFXFVMPawn::SetEstadoActual(IEstadoNaveJugador* NewState)
+{
+	if (EstadoActual)
+	{
+		EstadoActual->Desactivar();
+	}
+
+
+	EstadoActual = NewState;
+
+	if (EstadoActual)
+	{
+		EstadoActual->Activar();
+	}
+}
+
+void AGALAGA_USFXFVMPawn::CambiarMalla(UStaticMesh* NuevaMalla)
+{
+	if (NuevaMalla)
+	{
+		ShipMeshComponent->SetStaticMesh(NuevaMalla);
+	}
+}
+
+
+void AGALAGA_USFXFVMPawn::CambiarEstrategia(int32 NumeroEstrategia)
+{
+	AArmaDN* ArmaJugador = Cast<AArmaDN>(UGameplayStatics::GetActorOfClass(GetWorld(), AArmaDN::StaticClass()));
+	ArmaJugador->CambiarEstrategia(NumeroEstrategia);	
+}
+
+void AGALAGA_USFXFVMPawn::CambiarEstrategia1()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Cambiando a Estrategia 1"));
+	AArmaDN* ArmaJugador = Cast<AArmaDN>(UGameplayStatics::GetActorOfClass(GetWorld(), AArmaDN::StaticClass()));
+	ArmaJugador->CambiarEstrategia(1);
+}
+
+void AGALAGA_USFXFVMPawn::CambiarEstrategia2()
+{
+	AArmaDN* ArmaJugador = Cast<AArmaDN>(UGameplayStatics::GetActorOfClass(GetWorld(), AArmaDN::StaticClass()));
+	ArmaJugador->CambiarEstrategia(2);
+}
+
+void AGALAGA_USFXFVMPawn::CambiarEstrategia3()
+{
+	AArmaDN* ArmaJugador = Cast<AArmaDN>(UGameplayStatics::GetActorOfClass(GetWorld(), AArmaDN::StaticClass()));
+	ArmaJugador->CambiarEstrategia(3);
 }
