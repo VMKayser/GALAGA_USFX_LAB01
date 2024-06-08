@@ -21,13 +21,15 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void Actualizar(APublicadorEventos* PublicadorEventos) override;
 	void SetEstrategia(AActor* EstrategiaActual);
-	void EjecutarEstrategia();
+	
 	void CambiarEstrategia(int32 NumeroEstrategia);
+
+	class AEstrategiaAtaqueEscudo* EstrategiaEscudo;
+	class AEstrategiaAtaqueSierra* EstrategiaSierra;
+	class AEstrategiaAtaqueNormal* EstrategiaNormal;
+	class AEstrategiaAtaqueExplosivo* EstrategiaExplosivo;
 protected:
 	virtual void BeginPlay() override;
-	virtual void Disparar();
-	virtual void Recargar();
-	virtual void ShotTimerExpired();
 	void DestruirSubscripcion();
 
 private:

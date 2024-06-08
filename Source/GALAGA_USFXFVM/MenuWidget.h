@@ -20,7 +20,7 @@ public:
 	UMenuWidget(const FObjectInitializer& ObjectInitializer);
 protected:
 
-    UFacadeDificultadJuego* FacadeDificultadJuego;
+    AFacadeDificultadJuego* FacadeDificultadJuego;
     AFabricaDeNaves* FabricaDeNaves;
     ANaveNodrizaNiv1* NaveNodriza;
 public:

@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\GALAGA_USFXFVM.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{3C175CF8-7898-42D9-91C3-541C32FE15CA}</UniqueIdentifier>
+      <UniqueIdentifier>{4BFCE946-E426-4881-B3E4-4A46CC1A3146}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\GALAGA_USFXFVM.Target.cs">
       <Filter>Source</Filter>
@@ -17,7 +17,7 @@
     <None Include="..\..\README.md" />
     <None Include="..\..\shadertoolsconfig.json" />
     <Filter Include="Config">
-      <UniqueIdentifier>{2FFBD980-482E-4932-9208-13F9FC5D4C8A}</UniqueIdentifier>
+      <UniqueIdentifier>{28EBE246-70A7-4E65-8881-28E857B72127}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -35,7 +35,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\GALAGA_USFXFVM">
-      <UniqueIdentifier>{DE2AD8C8-23B0-4E40-A884-56AB0A711CF4}</UniqueIdentifier>
+      <UniqueIdentifier>{963F06A9-74AE-42A3-AD68-ECFF6D4A81D6}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\GALAGA_USFXFVM\ArmaDN.cpp">
       <Filter>Source\GALAGA_USFXFVM</Filter>
@@ -59,6 +59,18 @@
       <Filter>Source\GALAGA_USFXFVM</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\GALAGA_USFXFVM\BuilderNaveNodriza.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\CompositeNavesEnemigas.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\CompositeNavesEnemigas.h">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GALAGA_USFXFVM\CompositeNavesEnemigasClase.cpp">
+      <Filter>Source\GALAGA_USFXFVM</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GALAGA_USFXFVM\CompositeNavesEnemigasClase.h">
       <Filter>Source\GALAGA_USFXFVM</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\GALAGA_USFXFVM\ConfiguracionNaveNodriza.cpp">

@@ -20,18 +20,24 @@ ANaveCaza::ANaveCaza() {
 	nombre = "Nave Caza";
     bCanFire = true;
     projectileSpawn = FVector(90.f, 0.f, 0.f); // Puedes ajustar la posición inicial del arma si es necesario
+
+    Amplitud = 1000.0f; // La distancia total que recorrerá la nave (de 900 a -900)
+    Frecuencia = 0.5f; // Ajusta esta frecuencia para cambiar la velocidad del movimiento
+    TiempoAcumulado = 0.0f;
 }
 
 void ANaveCaza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Mover(DeltaTime);
-    Disparar();
+	
+    /*Disparar();*/
 }
 void ANaveCaza::BeginPlay()
 {
 	Super::BeginPlay();
     mallaNaveEnemiga->OnComponentHit.AddDynamic(this, &ANaveCaza::OnProjectileHit); 
+	PosicionInicial = GetActorLocation();
+	Movimiento = PosicionInicial;
 }
 void ANaveCaza::Disparar()
 {
@@ -108,7 +114,43 @@ void ANaveCaza::plusFormacionNave() {
 
 
 void ANaveCaza::Mover(float DeltaTime) {
-    /* Calcula la nueva posición restando la velocidad de la nave
+    TiempoAcumulado += DeltaTime;
+
+    // Calcula la nueva posición usando una función de onda triangular
+    Movimiento = PosicionInicial;
+    float TriangularWave = FMath::Abs(FMath::Fmod(TiempoAcumulado * Frecuencia, 2.0f) - 1.0f);
+    Movimiento.X -= Amplitud * TriangularWave * 2.0f;
+
+    SetActorLocation(Movimiento);
+}
+
+void ANaveCaza::Mover1(float DeltaTime)
+{
+    // Radio de la circunferencia alrededor de la nave
+    float Radio = 300.0f;
+
+    // Incrementa el ángulo con el tiempo
+    static float Angulo = 0.0f;
+    Angulo += DeltaTime * 0.5f; // Ajustar la velocidad de rotación cambiando este valor
+
+    // Calcula la nueva posición del arma
+    FVector NuevaPosicion = Movimiento + FVector(FMath::Cos(Angulo) * Radio, FMath::Sin(Angulo) * Radio, 0.0f);
+
+    // Establece la nueva posición del arma
+    SetActorLocation(NuevaPosicion);
+}
+
+
+void ANaveCaza::SetPadre(TScriptInterface<ICompositeNavesEnemigas> NuevoPadre)
+{
+    Padre = NuevoPadre;
+}
+
+TScriptInterface<ICompositeNavesEnemigas> ANaveCaza::GetPadre() const
+{
+    return Padre;
+}
+/* Calcula la nueva posición restando la velocidad de la nave
     FVector NewLocation = FVector(GetActorLocation().X - (1.75f * DeltaTime), GetActorLocation().Y, GetActorLocation().Z);
 
     // Establece la nueva posición
@@ -119,4 +161,3 @@ void ANaveCaza::Mover(float DeltaTime) {
         // Si sale del límite, reposiciona la nave en el lado derecho
         SetActorLocation(FVector(0.0f, 0.0f, 250.0f));
     }*/
-}

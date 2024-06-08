@@ -8,6 +8,7 @@
 #include "NaveNodrizaNiv1.h"
 #include "FacadeDificultadJuego.h"
 #include "PublicadorVidaJugador.h"
+#include "CompositeNavesEnemigasClase.h"
 #include "GALAGA_USFXFVMGameMode.generated.h"
 
 
@@ -24,7 +25,13 @@ protected:
 	// Called when the game starts or when spawned
 	
 	virtual void BeginPlay() override;
-	UFacadeDificultadJuego* FacadeDificultadJuego;
+	AFabricaDeNaves* FabricaDeNaves;
+	AFacadeDificultadJuego* FacadeDificultadJuego;
+	ACompositeNavesEnemigasClase* CompositeNaves;
+	ACompositeNavesEnemigasClase* CompositeNaves2;
+	ACompositeNavesEnemigasClase* CompositeNaves3;
+	ACompositeNavesEnemigasClase* CompositePadre;
+	ACompositeNavesEnemigasClase* CompositePadre2;
 	//TMap<FString, int32> TiposDeArma;
 	//TMap<FString, int32> TiposDeEscudo;
 	// Method to initialize the factory of enemy ships

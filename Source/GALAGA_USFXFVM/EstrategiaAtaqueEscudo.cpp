@@ -7,6 +7,7 @@
 #include "Engine/StaticMesh.h"
 
 #include "GALAGA_USFXFVMProjectile.h"
+
 // Sets default values
 AEstrategiaAtaqueEscudo::AEstrategiaAtaqueEscudo()
 {
@@ -42,12 +43,15 @@ void AEstrategiaAtaqueEscudo::Disparar(AArmaDN* Arma)
 
             GetWorld()->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AEstrategiaAtaqueEscudo::ShotTimerExpired, 1.0f);
 
-
             // Evitar disparar repetidamente
             bCanFire = false;
+            //Cambio de malla
             UStaticMesh* NuevaMalla1 = LoadObject<UStaticMesh>(nullptr, TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Trim.Shape_Trim'"));
             Arma->CambiarMalla(NuevaMalla1);
-            // Aquí puedes cambiar la apariencia del arma para parecer un escudo
+  
+             //// Cambiar la escala de la malla
+            FVector NuevaEscala = FVector(Arma->GetActorScale().X, 3.0f, 3.0f); // Escala en Y y Z
+            Arma->SetActorScale3D(NuevaEscala);
         }
     }
 }
@@ -64,23 +68,12 @@ void AEstrategiaAtaqueEscudo::MoverArma(AArmaDN* Arma, float DeltaTime)
         AGALAGA_USFXFVMPawn* Jugador = Cast<AGALAGA_USFXFVMPawn>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
         if (Jugador)
         {
-        
-           
-                    FVector PosicionJugador = Jugador->GetActorLocation();
-                    FVector PosicionObjetivo = FVector(PosicionJugador.X + 150.f, PosicionJugador.Y, PosicionJugador.Z);
+            FVector PosicionJugador = Jugador->GetActorLocation();
+            FVector PosicionActual = Arma->GetActorLocation();
+            FVector PosicionObjetivo = FVector(PosicionJugador.X + 150.f, PosicionJugador.Y, PosicionJugador.Z);
 
-                    FVector NuevaPosicion = FMath::VInterpTo(Arma->GetActorLocation(), PosicionObjetivo, DeltaTime, 2.0f);
-                    Arma->SetActorLocation(NuevaPosicion);
-
-
-                    //// Cambiar la escala de la malla
-                    FVector NuevaEscala = FVector(Arma->GetActorScale().X, 3.0f, 3.0f); // Escala en Y y Z
-                    Arma->SetActorScale3D(NuevaEscala);
-
-
-                
-
-            
+            FVector NuevaPosicion = FMath::VInterpTo(Arma->GetActorLocation(), PosicionObjetivo, DeltaTime, 2.0f);
+            Arma->SetActorLocation(NuevaPosicion);
 
         }
     }

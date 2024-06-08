@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "FabricaDeNaves.h"
+#include "CompositeNavesEnemigasClase.h"
 #include "FacadeDificultadJuego.generated.h"
 
 USTRUCT(BlueprintType)
@@ -39,7 +40,7 @@ struct FValoresNaveEnemiga
 };
 
 UCLASS()
-class GALAGA_USFXFVM_API UFacadeDificultadJuego : public UObject
+class GALAGA_USFXFVM_API AFacadeDificultadJuego : public AActor
 {
     GENERATED_BODY()
 
@@ -49,13 +50,13 @@ protected:
 
 
 public:
-    UFacadeDificultadJuego();
+    AFacadeDificultadJuego();
     AFabricaDeNaves* FabricaDeNaves;
-
+    virtual void Tick(float DeltaTime);
     void SetDificultad(int dificultadNivel);
     void SetValoresJugador(int dificultadNivel);
     void SetValoresEnemigos(int dificultadNivel,FValoresNaveEnemiga& ValoresNaveEnemiga);
     void SetValoresNivel(int dificultadNivel, const FValoresNaveEnemiga& ValoresNaveEnemiga);
-
+    ACompositeNavesEnemigasClase* CompositeNaves;
     void CrearNivel(int NumeroDelNivel);
 };

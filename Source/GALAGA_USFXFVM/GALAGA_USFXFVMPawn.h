@@ -107,6 +107,7 @@ private:
 	void CambiarEstrategia1();
 	void CambiarEstrategia2();
 	void CambiarEstrategia3();
+	void CambiarEstrategia4();
 protected:
 	virtual void BeginPlay() override;
 	void CambiarEstado();

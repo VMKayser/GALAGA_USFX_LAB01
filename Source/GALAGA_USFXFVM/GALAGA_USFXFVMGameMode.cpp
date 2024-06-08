@@ -23,20 +23,37 @@ AGALAGA_USFXFVMGameMode::AGALAGA_USFXFVMGameMode()
 	DefaultPawnClass = AGALAGA_USFXFVMPawn::StaticClass();
 
 	// Creamos un nuevo objeto de AFabricaDeNaves y lo asignamos a la variable FabricaDeNaves
-	
+	FabricaDeNaves = CreateDefaultSubobject<AFabricaDeNaves>(TEXT("FabricaDeNaves"));
 
-	FacadeDificultadJuego = CreateDefaultSubobject<UFacadeDificultadJuego>(TEXT("FacadeDificultadJuego"));
+	FacadeDificultadJuego = CreateDefaultSubobject<AFacadeDificultadJuego>(TEXT("FacadeDificultadJuego"));
 	
 }
 void AGALAGA_USFXFVMGameMode::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	/*CompositePadre->Mover1(DeltaTime);
+	CompositeNaves3->Mover(DeltaTime);*/
+	CompositePadre2->Mover(DeltaTime);
 }
 
 void AGALAGA_USFXFVMGameMode::BeginPlay()
 {
 	Super::BeginPlay();
+	FVector NNSpawnLocation(1550.0f, -1500.0f, 250.0f);
+	if (FabricaDeNaves)
+	{
+		CompositeNaves = FabricaDeNaves->GenerarCompositeNavesEnemigas(10, 5, NNSpawnLocation);
+		CompositeNaves2 = FabricaDeNaves->GenerarCompositeNavesEnemigas(10, 5, NNSpawnLocation+FVector(0.0f,3000.0f,0.0f));
+		CompositeNaves3 = FabricaDeNaves->GenerarCompositeNavesEnemigas(15, 3, NNSpawnLocation + FVector(-500.0f, 1000.0f, 200.0f));
+	}
+	CompositePadre = GetWorld()->SpawnActor<ACompositeNavesEnemigasClase>();
+	CompositePadre2 = GetWorld()->SpawnActor<ACompositeNavesEnemigasClase>();
+	CompositePadre->AgregarNave(CompositeNaves);
+	CompositePadre->AgregarNave(CompositeNaves2);
+	CompositePadre2->AgregarNave(CompositePadre);
+	CompositePadre2->AgregarNave(CompositeNaves3);
+	/*CompositePadre->AgregarNave(CompositeNaves3);*/
+	
 	DificultadJuego();
 	//APublicadorVidaJugador* pub;
 

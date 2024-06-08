@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveKamikaze() {}
 	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_ANaveEnemiga();
 	UPackage* Z_Construct_UPackage__Script_GALAGA_USFXFVM();
 	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_USubscriptorEvento_NoRegister();
+	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_UCompositeNavesEnemigas_NoRegister();
 // End Cross Module References
 	void ANaveKamikaze::StaticRegisterNativesANaveKamikaze()
 	{
@@ -64,6 +65,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveKamikaze() {}
 	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ANaveKamikaze_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_USubscriptorEvento_NoRegister, (int32)VTABLE_OFFSET(ANaveKamikaze, ISubscriptorEvento), false },
+			{ Z_Construct_UClass_UCompositeNavesEnemigas_NoRegister, (int32)VTABLE_OFFSET(ANaveKamikaze, ICompositeNavesEnemigas), false },
 		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ANaveKamikaze_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ANaveKamikaze>::IsAbstract,
@@ -92,7 +94,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveKamikaze() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveKamikaze, 871885342);
+	IMPLEMENT_CLASS(ANaveKamikaze, 136798970);
 	template<> GALAGA_USFXFVM_API UClass* StaticClass<ANaveKamikaze>()
 	{
 		return ANaveKamikaze::StaticClass();

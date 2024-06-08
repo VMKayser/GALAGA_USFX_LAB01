@@ -17,9 +17,71 @@ void EmptyLinkFunctionForGeneratedCodeFabricaDeNaves() {}
 	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_AFabricaDeNaves();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_GALAGA_USFXFVM();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_ACompositeNavesEnemigasClase_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AFabricaDeNaves::execGenerarCompositeNavesEnemigas)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_CantidadNaves);
+		P_GET_PROPERTY(FIntProperty,Z_Param_NumeroFilas);
+		P_GET_STRUCT(FVector,Z_Param_NNSpawnLocation);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(ACompositeNavesEnemigasClase**)Z_Param__Result=P_THIS->GenerarCompositeNavesEnemigas(Z_Param_CantidadNaves,Z_Param_NumeroFilas,Z_Param_NNSpawnLocation);
+		P_NATIVE_END;
+	}
 	void AFabricaDeNaves::StaticRegisterNativesAFabricaDeNaves()
 	{
+		UClass* Class = AFabricaDeNaves::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "GenerarCompositeNavesEnemigas", &AFabricaDeNaves::execGenerarCompositeNavesEnemigas },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics
+	{
+		struct FabricaDeNaves_eventGenerarCompositeNavesEnemigas_Parms
+		{
+			int32 CantidadNaves;
+			int32 NumeroFilas;
+			FVector NNSpawnLocation;
+			ACompositeNavesEnemigasClase* ReturnValue;
+		};
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_CantidadNaves;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_NumeroFilas;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_NNSpawnLocation;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::NewProp_CantidadNaves = { "CantidadNaves", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FabricaDeNaves_eventGenerarCompositeNavesEnemigas_Parms, CantidadNaves), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::NewProp_NumeroFilas = { "NumeroFilas", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FabricaDeNaves_eventGenerarCompositeNavesEnemigas_Parms, NumeroFilas), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::NewProp_NNSpawnLocation = { "NNSpawnLocation", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FabricaDeNaves_eventGenerarCompositeNavesEnemigas_Parms, NNSpawnLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FabricaDeNaves_eventGenerarCompositeNavesEnemigas_Parms, ReturnValue), Z_Construct_UClass_ACompositeNavesEnemigasClase_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::NewProp_CantidadNaves,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::NewProp_NumeroFilas,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::NewProp_NNSpawnLocation,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Naves" },
+		{ "ModuleRelativePath", "FabricaDeNaves.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFabricaDeNaves, nullptr, "GenerarCompositeNavesEnemigas", nullptr, nullptr, sizeof(FabricaDeNaves_eventGenerarCompositeNavesEnemigas_Parms), Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04820401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_AFabricaDeNaves_NoRegister()
 	{
@@ -28,6 +90,7 @@ void EmptyLinkFunctionForGeneratedCodeFabricaDeNaves() {}
 	struct Z_Construct_UClass_AFabricaDeNaves_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -37,6 +100,9 @@ void EmptyLinkFunctionForGeneratedCodeFabricaDeNaves() {}
 	UObject* (*const Z_Construct_UClass_AFabricaDeNaves_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AActor,
 		(UObject* (*)())Z_Construct_UPackage__Script_GALAGA_USFXFVM,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AFabricaDeNaves_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AFabricaDeNaves_GenerarCompositeNavesEnemigas, "GenerarCompositeNavesEnemigas" }, // 3298316767
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFabricaDeNaves_Statics::Class_MetaDataParams[] = {
@@ -52,11 +118,11 @@ void EmptyLinkFunctionForGeneratedCodeFabricaDeNaves() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		0,
 		0,
 		0x009000A4u,
@@ -71,7 +137,7 @@ void EmptyLinkFunctionForGeneratedCodeFabricaDeNaves() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFabricaDeNaves, 583111011);
+	IMPLEMENT_CLASS(AFabricaDeNaves, 2718062872);
 	template<> GALAGA_USFXFVM_API UClass* StaticClass<AFabricaDeNaves>()
 	{
 		return AFabricaDeNaves::StaticClass();

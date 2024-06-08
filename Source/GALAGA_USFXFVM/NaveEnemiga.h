@@ -92,10 +92,11 @@ public:
 
 
 protected:
-	void Mover() PURE_VIRTUAL(ANave_Enemiga::Mover, );
-	void Disparar() PURE_VIRTUAL(ANave_Enemiga::Disparar, );
+	/*void Mover() PURE_VIRTUAL(ANave_Enemiga::Mover, );*/
+	/*void Disparar() PURE_VIRTUAL(ANave_Enemiga::Disparar, );*/
 	void ShotTimerExpired() PURE_VIRTUAL(ANave_Enemiga::ShotTimerExpired, );
 	UFUNCTION()
 	void OnProjectileHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 	static USistemaPuntuacionComponente* SharedSistemaPuntuacionComponente;
+	
 };

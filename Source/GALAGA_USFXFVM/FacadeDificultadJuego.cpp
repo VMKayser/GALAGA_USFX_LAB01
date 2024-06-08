@@ -8,12 +8,20 @@
 #include "NaveNodrizaNiv1.h"
 #include "InstanciaJuegoNivel.h"  // Incluye para acceder a UInstanciaJuegoNivel
 
-UFacadeDificultadJuego::UFacadeDificultadJuego()
+AFacadeDificultadJuego::AFacadeDificultadJuego()
 {
     FabricaDeNaves = CreateDefaultSubobject<AFabricaDeNaves>(TEXT("FabricaDeNaves"));
 }
 
-void UFacadeDificultadJuego::SetDificultad(int dificultadNivel)
+void AFacadeDificultadJuego::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (CompositeNaves) {
+		CompositeNaves->Mover(DeltaTime);
+	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Dificultad Cambiada"));
+}
+void AFacadeDificultadJuego::SetDificultad(int dificultadNivel)
 {
     SetValoresJugador(dificultadNivel);
     FValoresNaveEnemiga ValoresNaveEnemiga;
@@ -28,7 +36,7 @@ void UFacadeDificultadJuego::SetDificultad(int dificultadNivel)
     SetValoresNivel(dificultadNivel, ValoresNaveEnemiga);
 }
 
-void UFacadeDificultadJuego::SetValoresJugador(int dificultadNivel)
+void AFacadeDificultadJuego::SetValoresJugador(int dificultadNivel)
 {
     switch (dificultadNivel)
     {
@@ -51,7 +59,7 @@ void UFacadeDificultadJuego::SetValoresJugador(int dificultadNivel)
     }
 }
 
-void UFacadeDificultadJuego::SetValoresEnemigos(int DificultadNivel, FValoresNaveEnemiga& ValoresNaveEnemiga)
+void AFacadeDificultadJuego::SetValoresEnemigos(int DificultadNivel, FValoresNaveEnemiga& ValoresNaveEnemiga)
 {
     switch (DificultadNivel)
     {
@@ -91,7 +99,7 @@ void UFacadeDificultadJuego::SetValoresEnemigos(int DificultadNivel, FValoresNav
 
 }
 
-void UFacadeDificultadJuego::SetValoresNivel(int dificultadNivel, const FValoresNaveEnemiga& ValoresNaveEnemiga)
+void AFacadeDificultadJuego::SetValoresNivel(int dificultadNivel, const FValoresNaveEnemiga& ValoresNaveEnemiga)
 {
 
     switch (dificultadNivel)
@@ -121,14 +129,14 @@ void UFacadeDificultadJuego::SetValoresNivel(int dificultadNivel, const FValores
     UInstanciaJuegoNivel* InstanciaJuegoNivel = Cast<UInstanciaJuegoNivel>(GetWorld()->GetGameInstance());
     if (InstanciaJuegoNivel)
     {
-        CrearNivel(InstanciaJuegoNivel->NumeroNivel);
+        /*CrearNivel(InstanciaJuegoNivel->NumeroNivel);*/
 
         
     }
 
     
 }
-void UFacadeDificultadJuego::CrearNivel(int NumeroDelNivel)
+void AFacadeDificultadJuego::CrearNivel(int NumeroDelNivel)
 {
     FVector NNSpawnLocation(0.0f, 0.0f, 250.0f);
     ANaveNodrizaNiv1* BuilderNaveNodriza;
@@ -191,7 +199,8 @@ void UFacadeDificultadJuego::CrearNivel(int NumeroDelNivel)
         // Configuración de nivel por defecto
         if (FabricaDeNaves)
         {
-            FabricaDeNaves->GenerarNavesEnemigas(NumeroNaves, NumeroFilas, NNSpawnLocation);
+          CompositeNaves = FabricaDeNaves->GenerarCompositeNavesEnemigas(NumeroNaves, NumeroFilas, NNSpawnLocation);
+		 /* ACompositeNavesEnemigasClase* CompositeNaves2 = FabricaDeNaves->GenerarCompositeNavesEnemigas(NumeroNaves, NumeroFilas, NNSpawnLocation);*/
         }
         break;
     }

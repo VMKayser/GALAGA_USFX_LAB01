@@ -4,6 +4,7 @@
 #include "EstrategiaAtaqueSierra.h"
 #include "ArmaDN.h"
 #include "GALAGA_USFXFVMPawn.h"
+#include "NaveEnemiga.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -11,7 +12,8 @@ AEstrategiaAtaqueSierra::AEstrategiaAtaqueSierra()
 {
     // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
-    //inicia un delta time
+
+ 
 }
 
 // Called when the game starts or when spawned
@@ -25,41 +27,59 @@ void AEstrategiaAtaqueSierra::BeginPlay()
 void AEstrategiaAtaqueSierra::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
-    if (bIsRotating)
-    {
-        if (Arma1)
-        {
-            AGALAGA_USFXFVMPawn* NaveJugador = Cast<AGALAGA_USFXFVMPawn>(UGameplayStatics::GetPlayerPawn(this, 0)); (UGameplayStatics::GetPlayerPawn(this, 0));
-            
-            if (NaveJugador)
-            {
-                
-                // Hacer que el arma gire alrededor de la nave jugador
-                FRotator Rotacion = Arma1->GetActorRotation();
-                Rotacion.Yaw += 0.1f * 100 * DeltaTime; // Ajustar la velocidad de rotación
-                Arma1->SetActorRotation(Rotacion);
-
-                FVector PosicionNave = NaveJugador->GetActorLocation();
-                FVector PosicionArma = PosicionNave + FVector(100, 0, 0); // Ajustar la distancia de la nave
-                Arma1->SetActorLocation(PosicionArma);
-            }
-        }
-    }
+    
 }
 
 void AEstrategiaAtaqueSierra::MoverArma(AArmaDN* Arma, float DeltaTime)
 {
+    if (Arma)
+    {
+        AGALAGA_USFXFVMPawn* Jugador = Cast<AGALAGA_USFXFVMPawn>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
+        FVector PosicionActual = Arma->GetActorLocation();
+        if (Jugador)
+        {
+            // Radio de la circunferencia alrededor de la nave
+            float Radio = 450.0f;
+
+            // Incrementa el ángulo con el tiempo
+            static float Angulo = 0.0f;
+            Angulo += DeltaTime * 3.0f; // Ajustar la velocidad de rotación cambiando este valor
+
+            // Calcula la nueva posición del arma
+            FVector PosicionNave = Jugador->GetActorLocation();
+            FVector NuevaPosicion = PosicionNave + FVector(FMath::Cos(Angulo) * Radio, FMath::Sin(Angulo) * Radio, 0.0f);
+
+            // Establece la nueva posición del arma
+            Arma->SetActorLocation(NuevaPosicion);
+           
+          
+        }
+        
+    }
 }
 
 void AEstrategiaAtaqueSierra::Disparar(AArmaDN* Arma)
 {
     if (Arma)
     {
-        Arma1 = Arma;    
-    
-            
-        bIsRotating = true; // Activar la rotación
-        PrimaryActorTick.bCanEverTick = true; // Activar el tick
-    
+        // Ataque Explosivo
+        TArray<AActor*> EnemigosCercanos;
+        UGameplayStatics::GetAllActorsOfClass(GetWorld(), ANaveEnemiga::StaticClass(), EnemigosCercanos);
+
+        for (AActor* Enemigo : EnemigosCercanos)
+        {
+            if (Enemigo->GetDistanceTo(Arma) <= 70.0f)
+            {
+                Enemigo->Destroy();
+            }
+        }
+
+        // Cambio de malla
+
+        UStaticMesh* NuevaMalla1 = LoadObject<UStaticMesh>(nullptr, TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Torus.Shape_Torus'"));
+        Arma->CambiarMalla(NuevaMalla1);
     }
+   
 }
+
+

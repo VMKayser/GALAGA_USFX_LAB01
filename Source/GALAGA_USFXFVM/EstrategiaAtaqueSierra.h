@@ -19,7 +19,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	bool bIsRotating;
+	
 	AArmaDN* Arma1;
 public:	
 	// Called every frame

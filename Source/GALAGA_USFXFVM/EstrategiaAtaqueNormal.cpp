@@ -31,18 +31,19 @@ void AEstrategiaAtaqueNormal::Disparar(AArmaDN* Arma)
 {
 	if (Arma && bCanFire)
 	{
-		GEngine -> AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Disparando"));
+		
 		// Obtener la rotación de disparo (hacia adelante a lo largo del eje X)
 		const FRotator FireRotation = Arma->GetActorForwardVector().Rotation();
 		// Obtener la ubicación de disparo (desde la posición del Pawn con un desplazamiento)
 		const FVector SpawnLocation = Arma->GetActorLocation() + FVector(100.0f,0.0f,0.0f);
-
+        FVector Distancia = FVector(0.0f, 50.0f, 0.0f);
 		UWorld* const World = GetWorld();
 		if (World != nullptr)
 		{
 			// Generar el proyectil
 			AGALAGA_USFXFVMProjectile* Projectile = World->SpawnActor<AGALAGA_USFXFVMProjectile>(SpawnLocation, FireRotation);
-
+            AGALAGA_USFXFVMProjectile* Projectile1 = World->SpawnActor<AGALAGA_USFXFVMProjectile>(SpawnLocation-Distancia, FireRotation);
+            AGALAGA_USFXFVMProjectile* Projectile2 = World->SpawnActor<AGALAGA_USFXFVMProjectile>(SpawnLocation+Distancia, FireRotation);
 			// Establecer el temporizador para el próximo disparo
 			World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AEstrategiaAtaqueNormal::ShotTimerExpired, 0.5f);
 

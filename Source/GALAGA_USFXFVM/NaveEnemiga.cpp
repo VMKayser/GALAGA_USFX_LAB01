@@ -42,6 +42,7 @@ void ANaveEnemiga::BeginPlay()
 void ANaveEnemiga::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
+	
 }
 
 void ANaveEnemiga::OnProjectileHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -71,6 +72,9 @@ void ANaveEnemiga::OnProjectileHit(UPrimitiveComponent* HitComp, AActor* OtherAc
     }
 
 }
+
+
+
 
 //
 //void ANaveEnemiga::OnProjectileHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)

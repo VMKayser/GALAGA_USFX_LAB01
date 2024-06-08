@@ -4,13 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "NaveEnemiga.h"
+#include "CompositeNavesEnemigas.h"
 #include "NaveCaza.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class GALAGA_USFXFVM_API ANaveCaza : public ANaveEnemiga
+class GALAGA_USFXFVM_API ANaveCaza : public ANaveEnemiga, public ICompositeNavesEnemigas
 {
 	GENERATED_BODY()
 
@@ -27,12 +28,24 @@ public:
 	virtual void plusFormacionNave();
 
 protected:
-
+	virtual void Mover(float DeltaTime) override;
+	virtual void Mover1(float DeltaTime) override;
+	virtual void Disparar() override;
 	virtual void BeginPlay() override;
-	virtual void Mover(float DeltaTime);
-	virtual void Disparar();
 	virtual void ShotTimerExpired();
 	virtual void Recargar();
+
+	virtual void SetPadre(TScriptInterface<ICompositeNavesEnemigas> Padre) override;
+	virtual TScriptInterface<ICompositeNavesEnemigas> GetPadre() const override;
+
+private:
+	FVector Movimiento;
+	FVector PosicionInicial;
+	float Amplitud;
+	float Frecuencia;
+	float TiempoAcumulado;
+
+	TScriptInterface<ICompositeNavesEnemigas> Padre;
 	
 
 };

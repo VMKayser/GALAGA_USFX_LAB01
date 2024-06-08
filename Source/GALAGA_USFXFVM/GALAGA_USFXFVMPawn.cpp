@@ -75,6 +75,8 @@ void AGALAGA_USFXFVMPawn::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAxis(MoveRightBinding);
 	//PlayerInputComponent->BindAxis(FireForwardBinding);
 	//PlayerInputComponent->BindAxis(FireRightBinding);
+	
+	
 	//bind tecla 1
 	PlayerInputComponent->BindAction("CambiarEstrategia1", IE_Pressed, this, &AGALAGA_USFXFVMPawn::CambiarEstrategia1);
 
@@ -84,6 +86,9 @@ void AGALAGA_USFXFVMPawn::SetupPlayerInputComponent(class UInputComponent* Playe
 
 	// Bind tecla 3
 	PlayerInputComponent->BindAction("CambiarEstrategia3", IE_Pressed, this, &AGALAGA_USFXFVMPawn::CambiarEstrategia3);
+
+	// Bind tecla 3
+	PlayerInputComponent->BindAction("CambiarEstrategia4", IE_Pressed, this, &AGALAGA_USFXFVMPawn::CambiarEstrategia4);
 
 }
 
@@ -241,4 +246,10 @@ void AGALAGA_USFXFVMPawn::CambiarEstrategia3()
 {
 	AArmaDN* ArmaJugador = Cast<AArmaDN>(UGameplayStatics::GetActorOfClass(GetWorld(), AArmaDN::StaticClass()));
 	ArmaJugador->CambiarEstrategia(3);
+}
+
+void AGALAGA_USFXFVMPawn::CambiarEstrategia4()
+{
+	AArmaDN* ArmaJugador = Cast<AArmaDN>(UGameplayStatics::GetActorOfClass(GetWorld(), AArmaDN::StaticClass()));
+	ArmaJugador->CambiarEstrategia(4);
 }

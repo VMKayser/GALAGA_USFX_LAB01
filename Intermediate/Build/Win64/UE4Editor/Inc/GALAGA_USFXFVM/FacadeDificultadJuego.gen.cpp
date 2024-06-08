@@ -15,9 +15,9 @@ void EmptyLinkFunctionForGeneratedCodeFacadeDificultadJuego() {}
 // Cross Module References
 	GALAGA_USFXFVM_API UScriptStruct* Z_Construct_UScriptStruct_FValoresNaveEnemiga();
 	UPackage* Z_Construct_UPackage__Script_GALAGA_USFXFVM();
-	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_UFacadeDificultadJuego_NoRegister();
-	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_UFacadeDificultadJuego();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
+	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_AFacadeDificultadJuego_NoRegister();
+	GALAGA_USFXFVM_API UClass* Z_Construct_UClass_AFacadeDificultadJuego();
+	ENGINE_API UClass* Z_Construct_UClass_AActor();
 // End Cross Module References
 class UScriptStruct* FValoresNaveEnemiga::StaticStruct()
 {
@@ -163,14 +163,14 @@ static struct FScriptStruct_GALAGA_USFXFVM_StaticRegisterNativesFValoresNaveEnem
 		return ReturnStruct;
 	}
 	uint32 Get_Z_Construct_UScriptStruct_FValoresNaveEnemiga_Hash() { return 3799274167U; }
-	void UFacadeDificultadJuego::StaticRegisterNativesUFacadeDificultadJuego()
+	void AFacadeDificultadJuego::StaticRegisterNativesAFacadeDificultadJuego()
 	{
 	}
-	UClass* Z_Construct_UClass_UFacadeDificultadJuego_NoRegister()
+	UClass* Z_Construct_UClass_AFacadeDificultadJuego_NoRegister()
 	{
-		return UFacadeDificultadJuego::StaticClass();
+		return AFacadeDificultadJuego::StaticClass();
 	}
-	struct Z_Construct_UClass_UFacadeDificultadJuego_Statics
+	struct Z_Construct_UClass_AFacadeDificultadJuego_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
 #if WITH_METADATA
@@ -179,22 +179,22 @@ static struct FScriptStruct_GALAGA_USFXFVM_StaticRegisterNativesFValoresNaveEnem
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
-	UObject* (*const Z_Construct_UClass_UFacadeDificultadJuego_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UObject,
+	UObject* (*const Z_Construct_UClass_AFacadeDificultadJuego_Statics::DependentSingletons[])() = {
+		(UObject* (*)())Z_Construct_UClass_AActor,
 		(UObject* (*)())Z_Construct_UPackage__Script_GALAGA_USFXFVM,
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFacadeDificultadJuego_Statics::Class_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFacadeDificultadJuego_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "FacadeDificultadJuego.h" },
 		{ "ModuleRelativePath", "FacadeDificultadJuego.h" },
 	};
 #endif
-	const FCppClassTypeInfoStatic Z_Construct_UClass_UFacadeDificultadJuego_Statics::StaticCppClassTypeInfo = {
-		TCppClassTypeTraits<UFacadeDificultadJuego>::IsAbstract,
+	const FCppClassTypeInfoStatic Z_Construct_UClass_AFacadeDificultadJuego_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<AFacadeDificultadJuego>::IsAbstract,
 	};
-	const UE4CodeGen_Private::FClassParams Z_Construct_UClass_UFacadeDificultadJuego_Statics::ClassParams = {
-		&UFacadeDificultadJuego::StaticClass,
-		nullptr,
+	const UE4CodeGen_Private::FClassParams Z_Construct_UClass_AFacadeDificultadJuego_Statics::ClassParams = {
+		&AFacadeDificultadJuego::StaticClass,
+		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
@@ -204,25 +204,25 @@ static struct FScriptStruct_GALAGA_USFXFVM_StaticRegisterNativesFValoresNaveEnem
 		0,
 		0,
 		0,
-		0x001000A0u,
-		METADATA_PARAMS(Z_Construct_UClass_UFacadeDificultadJuego_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UFacadeDificultadJuego_Statics::Class_MetaDataParams))
+		0x009000A4u,
+		METADATA_PARAMS(Z_Construct_UClass_AFacadeDificultadJuego_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AFacadeDificultadJuego_Statics::Class_MetaDataParams))
 	};
-	UClass* Z_Construct_UClass_UFacadeDificultadJuego()
+	UClass* Z_Construct_UClass_AFacadeDificultadJuego()
 	{
 		static UClass* OuterClass = nullptr;
 		if (!OuterClass)
 		{
-			UE4CodeGen_Private::ConstructUClass(OuterClass, Z_Construct_UClass_UFacadeDificultadJuego_Statics::ClassParams);
+			UE4CodeGen_Private::ConstructUClass(OuterClass, Z_Construct_UClass_AFacadeDificultadJuego_Statics::ClassParams);
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UFacadeDificultadJuego, 3357598796);
-	template<> GALAGA_USFXFVM_API UClass* StaticClass<UFacadeDificultadJuego>()
+	IMPLEMENT_CLASS(AFacadeDificultadJuego, 4221715394);
+	template<> GALAGA_USFXFVM_API UClass* StaticClass<AFacadeDificultadJuego>()
 	{
-		return UFacadeDificultadJuego::StaticClass();
+		return AFacadeDificultadJuego::StaticClass();
 	}
-	static FCompiledInDefer Z_CompiledInDefer_UClass_UFacadeDificultadJuego(Z_Construct_UClass_UFacadeDificultadJuego, &UFacadeDificultadJuego::StaticClass, TEXT("/Script/GALAGA_USFXFVM"), TEXT("UFacadeDificultadJuego"), false, nullptr, nullptr, nullptr);
-	DEFINE_VTABLE_PTR_HELPER_CTOR(UFacadeDificultadJuego);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_AFacadeDificultadJuego(Z_Construct_UClass_AFacadeDificultadJuego, &AFacadeDificultadJuego::StaticClass, TEXT("/Script/GALAGA_USFXFVM"), TEXT("AFacadeDificultadJuego"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(AFacadeDificultadJuego);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 #ifdef _MSC_VER
 #pragma warning (pop)

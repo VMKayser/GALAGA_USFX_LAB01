@@ -9,7 +9,7 @@
 
 UMenuWidget::UMenuWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	FacadeDificultadJuego = CreateDefaultSubobject<UFacadeDificultadJuego>(TEXT("FacadeDificultadJuego"));
+	FacadeDificultadJuego = CreateDefaultSubobject<AFacadeDificultadJuego>(TEXT("FacadeDificultadJuego"));
 
 }	
 

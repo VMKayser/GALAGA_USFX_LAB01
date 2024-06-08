@@ -25,28 +25,29 @@ void AFabricaDeNaves::BeginPlay()
 void AFabricaDeNaves::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
+   
 }
 void AFabricaDeNaves::GenerarNavesEnemigas(int32 CantidadNaves, int32 NumeroFilas, FVector NNSpawnLocation)
 {
    
-    FVector UbicacionInicial = FVector(600.0f, -550.0f, 0.0f+NNSpawnLocation.Z);
-    FVector UbicacionFinal = UbicacionInicial;
-	int32 NumeroColumnas = CantidadNaves / NumeroFilas;       
-    for (int32 i = 0; i < CantidadNaves; i++)
-    {
-        GenerarNaveEnemiga(UbicacionFinal);
-        UbicacionFinal.Y += 300.0f;
+ //   FVector UbicacionInicial = FVector(600.0f, -550.0f, 0.0f+NNSpawnLocation.Z);
+ //   FVector UbicacionFinal = UbicacionInicial;
+	//int32 NumeroColumnas = CantidadNaves / NumeroFilas;       
+ //   for (int32 i = 0; i < CantidadNaves; i++)
+ //   {
+ //       GenerarNaveEnemiga(UbicacionFinal);
+ //       UbicacionFinal.Y += 300.0f;
 
-		if ((i+1)% NumeroColumnas == 0)
-		{
-            UbicacionFinal.X += 300.0f;
-            UbicacionFinal.Y = UbicacionInicial.Y;
-		}
-        
-       
-    }
-	//llamar al metodo plusFormacionNave luego de generar las naves
-  
+	//	if ((i+1)% NumeroColumnas == 0)
+	//	{
+ //           UbicacionFinal.X += 300.0f;
+ //           UbicacionFinal.Y = UbicacionInicial.Y;
+	//	}
+ //       
+ //      
+ //   }
+	////llamar al metodo plusFormacionNave luego de generar las naves
+ // 
 }
 
 
@@ -104,4 +105,31 @@ ANaveEnemiga* AFabricaDeNaves::GenerarNaveEnemiga(const FVector& UbicacionInicia
 
 
     return NuevaNave;
+}
+
+ACompositeNavesEnemigasClase* AFabricaDeNaves::GenerarCompositeNavesEnemigas(int32 CantidadNaves, int32 NumeroFilas, FVector NNSpawnLocation)
+{
+
+    FVector UbicacionInicial = NNSpawnLocation;
+    FVector UbicacionFinal = UbicacionInicial;
+    int32 NumeroColumnas = CantidadNaves / NumeroFilas;
+        // Crea un Composite para almacenar las naves individuales
+        ACompositeNavesEnemigasClase* CompositeNaves = GetWorld()->SpawnActor<ACompositeNavesEnemigasClase>();
+
+        // Itera para generar naves individuales y agregarlas al Composite
+        for (int32 i = 0; i < CantidadNaves; i++)
+        {
+            ANaveEnemiga* NuevaNave = GenerarNaveEnemiga(UbicacionFinal);
+            UbicacionFinal.Y += 300.0f;
+
+            if ((i + 1) % NumeroColumnas == 0)
+            {
+                UbicacionFinal.X += 300.0f;
+                UbicacionFinal.Y = UbicacionInicial.Y;
+            }
+            CompositeNaves->AgregarNave(NuevaNave);
+        }
+
+        return CompositeNaves;
+  
 }

@@ -4,13 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "NaveEnemiga.h"
+#include "CompositeNavesEnemigas.h"
 #include "NaveTransporte.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class GALAGA_USFXFVM_API ANaveTransporte : public ANaveEnemiga
+class GALAGA_USFXFVM_API ANaveTransporte : public ANaveEnemiga, public ICompositeNavesEnemigas
 {
 	GENERATED_BODY()
 private:
@@ -22,10 +23,21 @@ public:
 	virtual void Tick(float DeltaTime);
 protected:
 	virtual void BeginPlay() override;
-	virtual void Mover(float DeltaTime);
-	virtual void Disparar();
+
 	virtual void Explotar();
+
+	virtual void Mover(float DeltaTime) override;
+	virtual void Mover1(float DeltaTime) override;
+	virtual void Disparar() override;
 	//UFUNCTION()
 	//void OnProjectileHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
-
+	FVector Movimiento;
+	FVector PosicionInicial;
+	float Amplitud;
+	float Frecuencia;
+	float TiempoAcumulado;
+	virtual void SetPadre(TScriptInterface<ICompositeNavesEnemigas> Padre) override;
+	virtual TScriptInterface<ICompositeNavesEnemigas> GetPadre() const override;
+private:
+	TScriptInterface<ICompositeNavesEnemigas> Padre;
 };

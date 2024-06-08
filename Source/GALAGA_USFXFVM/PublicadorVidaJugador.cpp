@@ -12,7 +12,6 @@ APublicadorVidaJugador::APublicadorVidaJugador()
     PrimaryActorTick.bCanEverTick = true;
     // Set default life value
     Subscriptores = TArray<AActor*>();
-   
 
 }
 void APublicadorVidaJugador::Tick(float DeltaTime)

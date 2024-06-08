@@ -31,7 +31,7 @@ ANaveCazagen1::ANaveCazagen1() {
 void ANaveCazagen1::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
-	Disparar();
+	/*Disparar();*/
 }
 void ANaveCazagen1::BeginPlay()
 {

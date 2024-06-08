@@ -9,6 +9,7 @@
 #include "EstrategiaAtaqueExplosivo.h"
 #include "EstrategiaAtaqueEscudo.h"	
 #include "EstrategiaAtaqueNormal.h"
+#include "EstrategiaAtaqueSierra.h"
 
 
 
@@ -16,17 +17,6 @@ AArmaDN::AArmaDN() {
     // Configurar la malla del arma (asegúrate de que ShipMesh tenga asignado el mesh correcto en el editor)
     static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_NarrowCapsule.Shape_NarrowCapsule'"));
 	mallaArma->SetStaticMesh(ShipMesh.Object);
-    // Configurar la velocidad y la munición
-    SetVelocidad(0.2f); // Ajusta la velocidad según tus necesidades
-    // Usamos un valor especial para representar munición infinita
-	SetDireccion(FVector(90.f, 0.f, 0.f)); // Puedes ajustar la posición inicial del arma si es necesario
-	SetMunicion(100);
-
-	bCanFire = true;
-	
-
-
-	
 }
 
 void AArmaDN::Tick(float DeltaTime) {
@@ -54,27 +44,14 @@ void AArmaDN::BeginPlay()
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("El publicador de vida del jugador no existe"));
 	}
-
-	
-	
-}
-
-void AArmaDN::Disparar()
-{
-	
+	EstrategiaEscudo = GetWorld()->SpawnActor<AEstrategiaAtaqueEscudo>(AEstrategiaAtaqueEscudo::StaticClass());
+	EstrategiaExplosivo = GetWorld()->SpawnActor<AEstrategiaAtaqueExplosivo>(AEstrategiaAtaqueExplosivo::StaticClass());
+	EstrategiaNormal = GetWorld()->SpawnActor<AEstrategiaAtaqueNormal>(AEstrategiaAtaqueNormal::StaticClass());
+	EstrategiaSierra = GetWorld()->SpawnActor<AEstrategiaAtaqueSierra>(AEstrategiaAtaqueSierra::StaticClass());
+	SetEstrategia(EstrategiaNormal);
 }
 
 
-void AArmaDN::ShotTimerExpired()
-{
-	bCanFire = true;
-}
-
-void AArmaDN::Recargar() {
-	// Recargar la munición
-	municion = 100;
-
-}
 void AArmaDN::Actualizar(APublicadorEventos* PublicadorEventos)
 {
 	/*APublicadorVidaJugador* PublicadorVida = Cast<APublicadorVidaJugador>(PublicadorEventos);
@@ -89,48 +66,9 @@ void AArmaDN::Actualizar(APublicadorEventos* PublicadorEventos)
 		{
 			band = true;
 		}*/
-
-		//if (VidaJugador == 60.0f) {
-		//	// Cambiar a una estrategia más agresiva
-		//	SetEstrategia(GetWorld()->SpawnActor<AEstrategiaSuicida>(AEstrategiaSuicida::StaticClass()));
-		//	EjecutarEstrategia();
-		//}
-		//else if (VidaJugador == 70.0f) {
-		//	// Cambiar a una estrategia defensiva
-		//	SetEstrategia(GetWorld()->SpawnActor<AEstrategiaEscudo>(AEstrategiaEscudo::StaticClass()));
-		//	EjecutarEstrategia();
-		//}
-		//else if (VidaJugador==80.0f)
-		//{
-		//	SetEstrategia(GetWorld()->SpawnActor<AEstrategiaJutsuMulticlones>(AEstrategiaJutsuMulticlones::StaticClass()));
-		//	EjecutarEstrategia();
-		//	// Mantener la estrategia actual
-	//	//}
-	//}
-	
-
 }
 
-void AArmaDN::SetEstrategia(AActor* EstrategiaActual)
-{
-	Estrategia = Cast<IEstrategiasArmasJugador>(EstrategiaActual);
-	if (!Estrategia)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("La estrategia no es válida"));
-	}
 
-}
-
-void AArmaDN::EjecutarEstrategia()
-{
-	if (Estrategia) 
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Ejecutando Estrategia"));
-		Estrategia->Disparar(this);
-		
-
-	}
-}
 
 
 
@@ -157,13 +95,16 @@ void AArmaDN::CambiarEstrategia(int32 NumeroEstrategia)
 	switch (NumeroEstrategia)
 	{
 	case 1:
-		SetEstrategia(GetWorld()->SpawnActor<AEstrategiaAtaqueEscudo>(AEstrategiaAtaqueEscudo::StaticClass()));
+		SetEstrategia(EstrategiaEscudo);
 		break;
 	case 2:
-		SetEstrategia(GetWorld()->SpawnActor<AEstrategiaAtaqueExplosivo>(AEstrategiaAtaqueExplosivo::StaticClass()));
+		SetEstrategia(EstrategiaExplosivo);
 		break;
 	case 3:
-		SetEstrategia(GetWorld()->SpawnActor<AEstrategiaAtaqueNormal>(AEstrategiaAtaqueNormal::StaticClass()));
+		SetEstrategia(EstrategiaNormal);
+		break;
+	case 4:
+		SetEstrategia(EstrategiaSierra);
 		break;
 	default:
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Número de estrategia no válido"));
@@ -171,3 +112,34 @@ void AArmaDN::CambiarEstrategia(int32 NumeroEstrategia)
 	}
 
 }
+
+void AArmaDN::SetEstrategia(AActor* EstrategiaActual)
+{
+	Estrategia = Cast<IEstrategiasArmasJugador>(EstrategiaActual);
+	if (!Estrategia)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("La estrategia no es válida"));
+	}
+
+}
+
+
+
+
+
+
+//prueba para varias arams
+//void AGALAGA_USFXFVMPawn::CambiarEstrategia4()
+//{
+//	TArray<AActor*> ArmasJugador;
+//	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AArmaDN::StaticClass(), ArmasJugador);
+//
+//	for (AActor* ArmaActor : ArmasJugador)
+//	{
+//		AArmaDN* ArmaJugador = Cast<AArmaDN>(ArmaActor);
+//		if (ArmaJugador)
+//		{
+//			ArmaJugador->CambiarEstrategia(4);
+//		}
+//	}
+//}
